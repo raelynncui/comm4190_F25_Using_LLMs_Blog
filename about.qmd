@@ -5,4 +5,4 @@ about:
   template: jolla
 ---
 
-About this blog
+Hi! My name is Raelynn. I'm a junior at Penn majoring in CS and PPE.
