@@ -1,5 +1,5 @@
 ---
-title: COMM 4190: Talking With AI Blog
+title: COMM 4190 Blog
 listing:
   contents: posts
   sort: date desc
