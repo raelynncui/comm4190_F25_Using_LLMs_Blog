@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Raelynn Cui">
+<meta name="dcterms.date" content="2025-09-06">
+<meta name="description" content="When ChatGPT tells you what you want to hear">
 
-<title>COMM 4190 Blog – Raelynn Cui</title>
+<title>LLM Sycophancy – Raelynn Cui</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a5d1ff6918a2d73efcd6c40a62aa79ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a5d1ff6918a2d73efcd6c40a62aa79ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,77 +70,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Raelynn Cui</span>
     </a>
   </div>
@@ -150,7 +93,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -173,138 +116,100 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">COMM 4190 Blog</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">LLM Sycophancy</h1>
+                  <div>
+        <div class="description">
+          When ChatGPT tells you what you want to hear
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">ChatGPT</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Raelynn Cui </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 6, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Q2hhdEdQVA==">ChatGPT <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHJvZmVzc2lvbmFs">Professional <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="llm-sycophancy" class="level1">
+<h1>LLM Sycophancy</h1>
+<section id="context" class="level3">
+<h3 class="anchored" data-anchor-id="context">Context</h3>
+<p>Recently, OpenAI’s GPT-4o model has gone under fire for being too agreeable – always seeming to learn toward encouragement and extremely polite phrasing. While this may sound nice, this sycophancy is a real issue. Many users have gone online, posting their own experiences with ChatGPT being overly flattering and praising them incessantly.</p>
+<figure class="figure">
+<img src="sycophancy_example.jpg" width="50%" class="figure-img">
+<figcaption style="text-align:left; font-style:italic; font-size:0.9em;">
+via https://thezvi.substack.com/p/gpt-4o-is-an-absurd-sycophant
+</figcaption>
+</figure>
+<p>In my last post, I talked about how I’ve been using ChatGPT to give me feedback while preparing for upcoming job interviews. When asking for feedback, I would ensure to request “brutal honesty” in my prompt, since I was aware of this sycophancy issue. I did it out of habit, but I’m curious to learn more and experiment with it! In this blog post, I explore how sycophancy arises and include a short excerpt of some “tests” I’ve been running to assess it.</p>
+</section>
+<section id="what-is-llm-sycophancy" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-llm-sycophancy">What is LLM sycophancy?</h3>
+<p>AI sycophancy refers to the tendency of language models to affirm, agree with, or overly flatter user inputs.</p>
+<p>This could arise due to a multitude of reasons, some of which include 1) the fact that LLMs are often trained on human text that rewards politeness and affirmation and 2) reinforcement learning may prefer kinder answers instead of blunt ones (especially when done by humans).</p>
+<p>When a sycophantic AI doesn’t challenge your assumptions, this is ultimately risky and even dangerous, since users could walk away with a flawed idea, answer, or plan.</p>
+</section>
+<section id="testing-brutally-honest-prompting" class="level3">
+<h3 class="anchored" data-anchor-id="testing-brutally-honest-prompting">Testing “brutally honest” prompting</h3>
+<p>How much of an impact does prompting ChatGPT to be “brutally honest” have? To test this idea, I used the GPT-4o model, which is the one that has been historically accused of being too sycophantic. In two separate chats, I prompted it to give me feedback on an interview response. While the contents of the interview response were exactly the same, the prompts were slightly different:</p>
+<section id="prompt-1-give-me-feedback-on-this-interview-response" class="level5">
+<h5 class="anchored" data-anchor-id="prompt-1-give-me-feedback-on-this-interview-response">Prompt 1: “give me feedback on this interview response…”</h5>
+</section>
+<section id="prompt-2-be-brutally-honest.-give-me-feedback-on-this-interview-response" class="level5">
+<h5 class="anchored" data-anchor-id="prompt-2-be-brutally-honest.-give-me-feedback-on-this-interview-response">Prompt 2: “be brutally honest. give me feedback on this interview response…”</h5>
+<p>Both responses were surprisingly similar – they gave me 3 areas that I did well, 4 areas that needed improvement, and a revised response.</p>
+<p>However, when I looked at the areas it pointed out that need improvement, I found that the quality of recommendations differed significantly. Below are excerpts of the first recommendation it gave me, where I was talking about my challenge navigating a conflict with a certain team (censored for privacy reasons) at work:</p>
+<p align="center">
+<img src="feedback_1.png" width="45%"> <img src="feedback_2.png" width="45%">
+</p>
+<p>Whereas prompt 1 is more vague and only provides one line of critique, prompt 2 goes into significantly more detail.</p>
+<p>I wondered if this discrepancy in feedback quality translated to the revised response that it suggested. While I can’t share the revision for privacy reasons, I asked a GPT-5 model which of the revised responses was better. Prompt 2 was the winner!</p>
+<p>Here was its breakdown – “Response A” refers to prompt 1’s revision and “Response B” refers to prompt 2’s revision. These are some of the ways in which Response B was better: - Response B offers more concrete details: it explicitly mentions [censored] as pain points. That level of specificity shows deeper product thinking and a clearer understanding of user behavior. Response A, while clean and well-framed, feels slightly more abstract — phrases like [censored] are less tangible than what’s presented in B. - Response A has polished phrasing, but it borders on sounding rehearsed. Response B is still polished but has more authentic voice. Phrases like [censored], [censored], and [censored] feel like a sharp communicator with boots on the ground.</p>
+<p>ChatGPT even broke it down into the following chart:</p>
+<p><img src="comparison.png" width="80%"></p>
+</section>
+</section>
+<section id="reflections" class="level3">
+<h3 class="anchored" data-anchor-id="reflections">Reflections</h3>
+<p>In my opinion, all of this goes to show the importance of crafting meaningful prompts – it’s not enough to just ask for feedback. Rather, humans need to take a more proactive approach! While asking for brutally honest and critical feedback may have caused me to feel more dejected in the short term, doing so allowed me to access sharper and more actionable feedback. Ultimately, I think this goes to show the power of using LLMs more as “thinking partners” instead of a one-way validation system.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TExNcyUyQ0NoYXRHUFQ=" data-listing-date-sort="1757116800000" data-listing-file-modified-sort="1757199759520" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="692">
-<div class="thumbnail"><a href="./posts/002_sycophancy/post_content.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/002_sycophancy/sycophancy_example.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/002_sycophancy/post_content.html" class="no-external">LLM Sycophancy</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hhdEdQVA=='); return false;">ChatGPT</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/002_sycophancy/post_content.html" class="no-external">
-<p>When ChatGPT tells you what you want to hear</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/002_sycophancy/post_content.html" class="no-external">
-<div class="listing-date">
-Sep 6, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TExNcyUyQ0NoYXRHUFQlMkNQcm9mZXNzaW9uYWw=" data-listing-date-sort="1757030400000" data-listing-file-modified-sort="1757199759516" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="713">
-<div class="thumbnail"><a href="./posts/001_mock_interview/post_content.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/001_mock_interview/chatgpt_voice.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/001_mock_interview/post_content.html" class="no-external">ChatGPT as a Mock Interviewer</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hhdEdQVA=='); return false;">ChatGPT</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvZmVzc2lvbmFs'); return false;">Professional</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/001_mock_interview/post_content.html" class="no-external">
-<p>Using AI to prepare for behavioral interviews</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/001_mock_interview/post_content.html" class="no-external">
-<div class="listing-date">
-Sep 5, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="TExNcw==" data-listing-date-sort="1706832000000" data-listing-file-modified-sort="1757199759513" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="450">
-<div class="thumbnail"><a href="./posts/000_test_post/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/000_test_post/gpt3-5.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/000_test_post/index.html" class="no-external">A test post</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/000_test_post/index.html" class="no-external">
-<p>An example post from a Jupyter notebook</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/000_test_post/index.html" class="no-external">
-<div class="listing-date">
-Feb 2, 2024
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

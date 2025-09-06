@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/002_sycophancy/post_content.html",
+      "/posts/001_mock_interview/post_content.html",
       "/posts/000_test_post/index.html"
     ]
   }
