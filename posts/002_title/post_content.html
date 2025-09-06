@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -201,59 +166,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>ChatGPT as a Mock Interviewer</h1>
 <section id="context" class="level3">
 <h3 class="anchored" data-anchor-id="context">Context</h3>
-<section id="over-the-past-few-weeks-ive-been-preparing-for-upcoming-internship-interviews-many-people-suggest-mock-interviewing-with-others-but-i-feel-bad-asking-someone-to-listen-to-me-talk-for-so-long-and-subjecting-them-to-my-rambles.-not-only-that-but-ive-found-that-rehearsing-answers-and-practicing-in-my-head-is-completely-ineffective-when-someone-asks-me-a-question-in-real-time-i-freeze-up-and-dont-know-what-to-say." class="level6">
-<h6 class="anchored" data-anchor-id="over-the-past-few-weeks-ive-been-preparing-for-upcoming-internship-interviews-many-people-suggest-mock-interviewing-with-others-but-i-feel-bad-asking-someone-to-listen-to-me-talk-for-so-long-and-subjecting-them-to-my-rambles.-not-only-that-but-ive-found-that-rehearsing-answers-and-practicing-in-my-head-is-completely-ineffective-when-someone-asks-me-a-question-in-real-time-i-freeze-up-and-dont-know-what-to-say.">Over the past few weeks, I’ve been preparing for upcoming internship interviews! Many people suggest mock interviewing with others, but I feel bad asking someone to listen to me talk for so long and subjecting them to my rambles. Not only that, but I’ve found that rehearsing answers and practicing “in my head” is completely ineffective – when someone asks me a question in real time, I freeze up and don’t know what to say.</h6>
-</section>
-<section id="so-i-turned-to-chatgpt-as-a-prep-partner-using-it-as-a-coach-mock-interviewer-and-critic" class="level6">
-<h6 class="anchored" data-anchor-id="so-i-turned-to-chatgpt-as-a-prep-partner-using-it-as-a-coach-mock-interviewer-and-critic">So, I turned to ChatGPT as a prep partner, using it as a coach, mock interviewer, and critic!</h6>
+<p>Over the past few weeks, I’ve been preparing for upcoming internship interviews! Many people suggest mock interviewing with others, but I feel bad asking someone to listen to me talk for so long and subjecting them to my rambles. Not only that, but I’ve found that rehearsing answers and practicing “in my head” is completely ineffective – when someone asks me a question in real time, I freeze up and don’t know what to say.</p>
+<p>So, I turned to ChatGPT as a prep partner, using it as a coach, mock interviewer, and critic!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="chatgpt_voice.png" class="img-fluid figure-img"></p>
 <figcaption>ChatGPT voice feature</figcaption>
 </figure>
 </div>
-</section>
 <section id="i-used-chatgpt-across-all-areas-of-interview-preparation-coming-up-with-answers-verbally-delivering-the-answers-and-receiving-feedback.-this-blog-outlines-how-llms-assisted-me-across-all-these-stages" class="level5">
 <h5 class="anchored" data-anchor-id="i-used-chatgpt-across-all-areas-of-interview-preparation-coming-up-with-answers-verbally-delivering-the-answers-and-receiving-feedback.-this-blog-outlines-how-llms-assisted-me-across-all-these-stages">I used ChatGPT across all areas of interview preparation: coming up with answers, verbally delivering the answers, and receiving feedback. This blog outlines how LLMs assisted me across all these stages!</h5>
 </section>
 </section>
 <section id="stage-1-answers" class="level3">
 <h3 class="anchored" data-anchor-id="stage-1-answers">Stage 1: Answers</h3>
-<section id="to-optimize-the-feedback-that-chatgpt-gave-me-on-behavioral-questions-tell-me-about-a-time-when-you-led-a-team-tell-me-about-a-time-when-you-failed-i-needed-to-provide-it-with-extensive-context-on-my-previous-experiences.-to-do-this-i-uploaded-two-files-to-my-project-folder-1-my-resume-and-2-a-longer-more-narrative-driven-document-where-i-keep-a-running-log-of-the-details-and-lessons-ive-learned-from-my-previous-experiences." class="level6">
-<h6 class="anchored" data-anchor-id="to-optimize-the-feedback-that-chatgpt-gave-me-on-behavioral-questions-tell-me-about-a-time-when-you-led-a-team-tell-me-about-a-time-when-you-failed-i-needed-to-provide-it-with-extensive-context-on-my-previous-experiences.-to-do-this-i-uploaded-two-files-to-my-project-folder-1-my-resume-and-2-a-longer-more-narrative-driven-document-where-i-keep-a-running-log-of-the-details-and-lessons-ive-learned-from-my-previous-experiences.">To optimize the feedback that ChatGPT gave me on behavioral questions (“Tell me about a time when you led a team,” “Tell me about a time when you failed”), I needed to provide it with extensive context on my previous experiences. To do this, I uploaded two files to my project folder: 1) my resume and 2) a longer, more narrative-driven document, where I keep a running log of the details and lessons I’ve learned from my previous experiences.</h6>
-</section>
-<section id="by-giving-chatgpt-this-context-i-was-even-able-to-ask-it-to-read-between-the-lines-my-experiences-to-extract-core-themes-that-could-be-applied-to-any-behavioral-question.-in-fact-this-was-the-most-useful-aspect-of-using-an-llm-to-prepare-for-behavioral-questions-with-the-right-prompting-it-could-even-point-out-patterns-in-my-experiences-that-i-hadnt-noticed-before" class="level6">
-<h6 class="anchored" data-anchor-id="by-giving-chatgpt-this-context-i-was-even-able-to-ask-it-to-read-between-the-lines-my-experiences-to-extract-core-themes-that-could-be-applied-to-any-behavioral-question.-in-fact-this-was-the-most-useful-aspect-of-using-an-llm-to-prepare-for-behavioral-questions-with-the-right-prompting-it-could-even-point-out-patterns-in-my-experiences-that-i-hadnt-noticed-before">By giving ChatGPT this context, I was even able to ask it to “read between the lines” my experiences to extract core themes that could be applied to any behavioral question. In fact, this was the most useful aspect of using an LLM to prepare for behavioral questions – with the right prompting, it could even point out patterns in my experiences that I hadn’t noticed before!</h6>
-<div id="32c56ea1-bab1-4e74-a974-2811ffc387f2" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>[Contextual documents given to ChatGPT](supporting_docs.png)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To optimize the feedback that ChatGPT gave me on behavioral questions (“Tell me about a time when you led a team,” “Tell me about a time when you failed”), I needed to provide it with extensive context on my previous experiences. To do this, I uploaded two files to my project folder: 1) my resume and 2) a longer, more narrative-driven document, where I keep a running log of the details and lessons I’ve learned from my previous experiences.</p>
+<p>By giving ChatGPT this context, I was even able to ask it to “read between the lines” my experiences to extract core themes that could be applied to any behavioral question. In fact, this was the most useful aspect of using an LLM to prepare for behavioral questions – with the right prompting, it could even point out patterns in my experiences that I hadn’t noticed before!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="supporting_docs.png" class="img-fluid figure-img"></p>
+<figcaption>Contextual documents given to ChatGPT</figcaption>
+</figure>
 </div>
-</section>
 </section>
 <section id="stage-2-verbal-delivery" class="level3">
 <h3 class="anchored" data-anchor-id="stage-2-verbal-delivery">Stage 2: Verbal Delivery</h3>
-<section id="to-practice-verbally-delivering-my-answers-i-made-use-of-chatgpts-voice-feature.-i-provided-it-with-a-bank-of-questions-and-then-prompted-it-to-act-like-an-interviewer-and-choose-one-at-random.-in-this-stage-it-wasnt-much-about-what-chatgpt-could-say-to-me-it-was-most-useful-in-creating-a-space-to-simulate-the-surprise-of-getting-a-question-at-random-and-having-to-answer-it-on-the-spot." class="level6">
-<h6 class="anchored" data-anchor-id="to-practice-verbally-delivering-my-answers-i-made-use-of-chatgpts-voice-feature.-i-provided-it-with-a-bank-of-questions-and-then-prompted-it-to-act-like-an-interviewer-and-choose-one-at-random.-in-this-stage-it-wasnt-much-about-what-chatgpt-could-say-to-me-it-was-most-useful-in-creating-a-space-to-simulate-the-surprise-of-getting-a-question-at-random-and-having-to-answer-it-on-the-spot.">To practice verbally delivering my answers, I made use of ChatGPT’s voice feature. I provided it with a bank of questions and then prompted it to act like an interviewer and choose one at random. In this stage, it wasn’t much about what ChatGPT could say to me – it was most useful in creating a space to simulate the surprise of getting a question at random and having to answer it on the spot.</h6>
-</section>
+<p>To practice verbally delivering my answers, I made use of ChatGPT’s voice feature. I provided it with a bank of questions and then prompted it to act like an interviewer and choose one at random. In this stage, it wasn’t much about what ChatGPT could say to me – it was most useful in creating a space to simulate the surprise of getting a question at random and having to answer it on the spot.</p>
 </section>
 <section id="stage-3-feedback" class="level3">
 <h3 class="anchored" data-anchor-id="stage-3-feedback">Stage 3: Feedback</h3>
-<section id="previous-versions-of-chatgpt-gpt-4o-have-been-accused-of-being-too-sycophantic-being-overly-flattering-and-agreeable-to-the-user.-while-this-attribute-has-been-claimed-to-be-addressed-in-the-gpt-5-update-which-is-what-i-was-using-i-still-always-made-sure-to-prompt-the-model-to-be-brutally-honest.-doing-so-forced-the-llm-to-give-more-critical-feedback-on-my-response-which-is-where-the-real-improvement-in-my-responses-was-made-additionally-prompting-chatgpt-to-act-as-a-product-director-and-apply-best-frameworks-and-relevant-practices-since-i-was-interviewing-for-product-management-roles-produced-extremely-good-results." class="level6">
-<h6 class="anchored" data-anchor-id="previous-versions-of-chatgpt-gpt-4o-have-been-accused-of-being-too-sycophantic-being-overly-flattering-and-agreeable-to-the-user.-while-this-attribute-has-been-claimed-to-be-addressed-in-the-gpt-5-update-which-is-what-i-was-using-i-still-always-made-sure-to-prompt-the-model-to-be-brutally-honest.-doing-so-forced-the-llm-to-give-more-critical-feedback-on-my-response-which-is-where-the-real-improvement-in-my-responses-was-made-additionally-prompting-chatgpt-to-act-as-a-product-director-and-apply-best-frameworks-and-relevant-practices-since-i-was-interviewing-for-product-management-roles-produced-extremely-good-results.">Previous versions of ChatGPT (GPT-4o) have been accused of being too sycophantic – being overly flattering and agreeable to the user. While this attribute has been claimed to be addressed in the GPT-5 update, which is what I was using, I still always made sure to prompt the model to be “brutally honest.” Doing so forced the LLM to give more critical feedback on my response, which is where the real improvement in my responses was made! Additionally, prompting ChatGPT to “act as a product director” and “apply best frameworks and relevant practices” (since I was interviewing for product management roles) produced extremely good results.</h6>
-<div id="65c3e9ae-cb03-4e7e-8ad4-a9c4ddac1196" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>[](interview.png)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
+<p>Previous versions of ChatGPT (GPT-4o) have been accused of being too sycophantic – being overly flattering and agreeable to the user. While this attribute has been claimed to be addressed in the GPT-5 update, which is what I was using, I still always made sure to prompt the model to be “brutally honest.” Doing so forced the LLM to give more critical feedback on my response, which is where the real improvement in my responses was made! Additionally, prompting ChatGPT to “act as a product director” and “apply best frameworks and relevant practices” (since I was interviewing for product management roles) produced extremely good results.</p>
+<p><img src="interview.png" class="img-fluid"></p>
 </section>
 <section id="reflections" class="level3">
 <h3 class="anchored" data-anchor-id="reflections">Reflections</h3>
-<section id="utilizing-chatgpt-was-an-incredibly-valuable-part-of-my-interview-preparation.-psychologically-it-was-great-to-have-a-low-stakes-and-always-readily-available-interviewer-when-walking-in-between-classes-i-could-simply-pull-out-my-phone-and-do-a-quick-mock-question.-this-experience-has-shown-me-the-importance-of-1-providing-an-llm-with-the-correct-context-and-2-crafting-the-correct-prompts-for-my-specific-use-case.-if-i-hadnt-provided-chatgpt-with-the-extensive-accounts-of-my-previous-experiences-many-of-which-i-forget-or-cant-recall-the-details-of-off-the-top-of-my-head-it-would-not-have-been-able-to-provide-as-nuanced-suggestions-and-revisions.-additionally-if-i-had-not-prompted-it-to-be-brutally-honest-it-may-have-only-provided-vapid-and-flattering-feedback-which-makes-me-feel-good-in-the-moment-but-doesnt-help-with-improvement." class="level6">
-<h6 class="anchored" data-anchor-id="utilizing-chatgpt-was-an-incredibly-valuable-part-of-my-interview-preparation.-psychologically-it-was-great-to-have-a-low-stakes-and-always-readily-available-interviewer-when-walking-in-between-classes-i-could-simply-pull-out-my-phone-and-do-a-quick-mock-question.-this-experience-has-shown-me-the-importance-of-1-providing-an-llm-with-the-correct-context-and-2-crafting-the-correct-prompts-for-my-specific-use-case.-if-i-hadnt-provided-chatgpt-with-the-extensive-accounts-of-my-previous-experiences-many-of-which-i-forget-or-cant-recall-the-details-of-off-the-top-of-my-head-it-would-not-have-been-able-to-provide-as-nuanced-suggestions-and-revisions.-additionally-if-i-had-not-prompted-it-to-be-brutally-honest-it-may-have-only-provided-vapid-and-flattering-feedback-which-makes-me-feel-good-in-the-moment-but-doesnt-help-with-improvement.">Utilizing ChatGPT was an incredibly valuable part of my interview preparation. Psychologically, it was great to have a low-stakes and always readily available “interviewer” – when walking in between classes, I could simply pull out my phone and do a quick mock question. This experience has shown me the importance of 1) providing an LLM with the correct context and 2) crafting the correct prompts for my specific use case. If I hadn’t provided ChatGPT with the extensive accounts of my previous experiences (many of which I forget or can’t recall the details of off the top of my head), it would not have been able to provide as nuanced suggestions and revisions. Additionally, if I had not prompted it to be brutally honest, it may have only provided vapid and flattering feedback (which makes me feel good in the moment, but doesn’t help with improvement).</h6>
-</section>
-<section id="as-im-writing-this-i-actually-just-completed-two-interviews-that-i-was-using-these-methods-with-chatgpt-to-prepare-me-for-upon-reflection-there-was-a-sense-of-randomness-and-interviewer-dependent-context-that-i-couldnt-have-prepared-for-with-an-llm.-for-example-many-questions-were-not-framed-in-a-way-where-i-could-immediately-jump-into-a-star-framework-response-or-a-product-design-framework-response.-in-this-sense-chatgpt-turned-out-to-be-most-helpful-for-extracting-core-themes-from-my-experiences-and-being-able-to-communicate-these-concisely-with-phrases-that-i-could-weave-throughout-my-interview-conversations." class="level6">
-<h6 class="anchored" data-anchor-id="as-im-writing-this-i-actually-just-completed-two-interviews-that-i-was-using-these-methods-with-chatgpt-to-prepare-me-for-upon-reflection-there-was-a-sense-of-randomness-and-interviewer-dependent-context-that-i-couldnt-have-prepared-for-with-an-llm.-for-example-many-questions-were-not-framed-in-a-way-where-i-could-immediately-jump-into-a-star-framework-response-or-a-product-design-framework-response.-in-this-sense-chatgpt-turned-out-to-be-most-helpful-for-extracting-core-themes-from-my-experiences-and-being-able-to-communicate-these-concisely-with-phrases-that-i-could-weave-throughout-my-interview-conversations.">As I’m writing this, I actually just completed two interviews that I was using these methods with ChatGPT to prepare me for! Upon reflection, there was a sense of randomness and interviewer-dependent context that I couldn’t have prepared for with an LLM. For example, many questions were not framed in a way where I could immediately jump into a STAR framework response or a product design framework response. In this sense, ChatGPT turned out to be most helpful for extracting core themes from my experiences and being able to communicate these concisely with phrases that I could weave throughout my interview conversations.</h6>
+<p>Utilizing ChatGPT was an incredibly valuable part of my interview preparation. Psychologically, it was great to have a low-stakes and always readily available “interviewer” – when walking in between classes, I could simply pull out my phone and do a quick mock question. This experience has shown me the importance of 1) providing an LLM with the correct context and 2) crafting the correct prompts for my specific use case. If I hadn’t provided ChatGPT with the extensive accounts of my previous experiences (many of which I forget or can’t recall the details of off the top of my head), it would not have been able to provide as nuanced suggestions and revisions. Additionally, if I had not prompted it to be brutally honest, it may have only provided vapid and flattering feedback (which makes me feel good in the moment, but doesn’t help with improvement).</p>
+<p>As I’m writing this, I actually just completed two interviews that I was using these methods with ChatGPT to prepare me for! Upon reflection, there was a sense of randomness and interviewer-dependent context that I couldn’t have prepared for with an LLM. For example, many questions were not framed in a way where I could immediately jump into a STAR framework response or a product design framework response. In this sense, ChatGPT turned out to be most helpful for extracting core themes from my experiences and being able to communicate these concisely with phrases that I could weave throughout my interview conversations.</p>
 
 
-</section>
 </section>
 </section>
 
