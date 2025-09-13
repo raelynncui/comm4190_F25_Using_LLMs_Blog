@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Raelynn Cui">
-<meta name="dcterms.date" content="2025-09-12">
-<meta name="description" content="Asking ChatGPT to simplify a concept down to its simplest form">
+<meta name="dcterms.date" content="2025-09-14">
+<meta name="description" content="Like humans, do LLMs fall prey to cognitive biases?">
 
-<title>How Simple Can You Get? – Raelynn Cui</title>
+<title>Anchoring Effects with LLMs – Raelynn Cui</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,15 +120,16 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How Simple Can You Get?</h1>
+      <h1 class="title">Anchoring Effects with LLMs</h1>
                   <div>
         <div class="description">
-          Asking ChatGPT to simplify a concept down to its simplest form
+          Like humans, do LLMs fall prey to cognitive biases?
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">ChatGPT</div>
                 <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Bias</div>
               </div>
                   </div>
   </div>
@@ -146,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 12, 2025</p>
+        <p class="date">September 14, 2025</p>
       </div>
     </div>
     
@@ -165,224 +166,51 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="how-simple-can-you-get" class="level1">
-<h1>How Simple Can You Get?</h1>
+<section id="anchoring-effects-with-llms" class="level1">
+<h1>Anchoring Effects with LLMs</h1>
 <section id="context" class="level3">
 <h3 class="anchored" data-anchor-id="context">Context</h3>
-<p>In this experiment, I wanted to test what happens when you ask ChatGPT to explain a concept over and over, but each time demand that it make things even simpler by repeating the prompt:</p>
+<p>I’m currently taking MKTG 2120 (Data and Analysis for Marketing Decisions). During one of the first few classes this semester, my professor was talking about the use of LLMs to respond to user surveys – acting as “synthetic respondents.” She mentioned that, similar to humans, LLMs may also fall prey to certain biases that can be evoked in surveys. For example, if you asked a user the question “How would you rate the cleanliness of the store?” before you asked then “How would you rate your overall experience?”, their rating of the store cleanliness would weigh on their mind when determining their overall rating, biasing their response.</p>
+<p>I wanted to test this on my own and see if an LLM would show signs of cognitive biases that are usually associated with humans. I felt that this wasn’t a crazy hypothesis, since these LLMs are trained on data that also likely exhibit these effects.</p>
+<p>The bias I chose to test was the anchoring effect. In psychology, anchoring describes how people’s judgments are swayed by the first piece of information they see. A classic example is: if you ask someone whether the Mississippi River is longer or shorter than 500 miles, then ask for their best guess, they’ll give a much lower estimate than if you anchor them with 5,000 miles. That first number, no matter how arbitrary, sticks in the mind and frames what feels “reasonable.”</p>
+<p>So I set up a simple experiment with ChatGPT. I gave it the following prompt:</p>
 <div style="background-color: #f2f2f2; border-left: 6px solid #999; padding: 16px; margin: 20px 0; border-radius: 6px;">
 <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #333;">
-“I still don’t understand. Explain it even more simply”
+You are a potential buyer of a product and I am the seller. I’m selling a simple pencil for $X. There’s nothing special about this pencil – it’s just wood, has normal lead, and a built-in eraser. Do you accept my offer to buy it?
 </p>
 </div>
-<p>Ultimately, I wanted to test how far ChatGPT would go. I predicted that eventually, the explanation of the concept would become simplified to a point where it became meaningless, since the LLM would be unable to deny the simplification request. For this experiment, I asked ChatGPT to explain a fairly common but often misunderstood topic: the cloud.</p>
-<p>I then repeated this experiment, but with a human – noting the differences in how humans interpret this simplicity threshold and how much nuance we’re willing to give up for the sake of simplicity when explaining something.</p>
-<p><img src="cloud.jpg" width="50%"></p>
+<p>In the place of X, I experimented with three values: $20, $3, and $1.</p>
 </section>
-<section id="round-1" class="level3">
-<h3 class="anchored" data-anchor-id="round-1">Round 1</h3>
-<p>After asking ChatGPT the first time to explain the cloud, it gave me a long and structured answer with 6 parts:</p>
-<div style="background-color: #f2f2f2; border-left: 6px solid #999; padding: 20px; margin: 20px 0; border-radius: 6px; color: #333;">
-<p>
-At a high level, “the cloud” just means computing resources (like storage, servers, databases, networking, and software) that are delivered over the internet instead of being tied to your own local computer or company server. Let me break it down step by step:
-</p>
-<h3 class="anchored">
-<ol type="1">
-<li>Physical Infrastructure
-</li></ol></h3>
-<p>
-Even though the cloud feels “invisible,” it’s built on huge data centers filled with powerful servers. These are maintained by companies like Amazon (AWS), Microsoft (Azure), Google Cloud, etc. Each data center has:
-</p>
-<ul>
-<li>
-<strong>Servers:</strong> Machines that provide processing power and memory.
-</li>
-<li>
-<strong>Storage systems:</strong> Where files, databases, and backups live.
-</li>
-<li>
-<strong>Networking equipment:</strong> Switches and routers that connect everything securely.
-</li>
-</ul>
-
-<h3 class="anchored">
-<ol start="2" type="1">
-<li>Virtualization
-</li></ol></h3>
-<p>
-Cloud providers don’t just hand you a whole physical server. Instead, they use virtualization:
-</p>
-<ul>
-<li>
-A single physical machine can be split into many virtual machines (VMs).
-</li>
-<li>
-Each VM behaves like its own independent computer with its own operating system and resources.
-</li>
-<li>
-This lets providers serve millions of customers on the same hardware efficiently.
-</li>
-</ul>
-
-<h3 class="anchored">
-<ol start="3" type="1">
-<li>Service Models
-</li></ol></h3>
-<p>
-The cloud is packaged in layers depending on how much control you want:
-</p>
-<ul>
-<li>
-<strong>IaaS (Infrastructure as a Service):</strong> Renting raw resources (servers, storage, networks). Example: AWS EC2.
-</li>
-<li>
-<strong>PaaS (Platform as a Service):</strong> Tools for building apps without worrying about servers. Example: Google App Engine.
-</li>
-<li>
-<strong>SaaS (Software as a Service):</strong> Finished apps delivered through the web. Example: Gmail, Dropbox.
-</li>
-</ul>
-
-<h3 class="anchored">
-<ol start="4" type="1">
-<li>Scaling &amp; Flexibility
-</li></ol></h3>
-<p>
-Instead of buying your own machines, the cloud gives you on-demand scaling:
-</p>
-<ul>
-<li>
-Need more computing power during Black Friday? Rent more servers for a few days.
-</li>
-<li>
-Traffic drops? Scale back down and stop paying for unused capacity.
-</li>
-</ul>
-<p>
-This flexibility is one of the main reasons companies move to the cloud.
-</p>
-
-<h3 class="anchored">
-<ol start="5" type="1">
-<li>Accessibility
-</li></ol></h3>
-<p>
-Because everything is hosted online:
-</p>
-<ul>
-<li>
-You can access your data and apps from any device, anywhere.
-</li>
-<li>
-Teams can collaborate in real time (like in Google Docs).
-</li>
-<li>
-You don’t need to manage physical servers yourself.
-</li>
-</ul>
-
-<h3 class="anchored">
-<ol start="6" type="1">
-<li>Security &amp; Maintenance
-</li></ol></h3>
-<p>
-Cloud providers handle:
-</p>
-<ul>
-<li>
-Backups and redundancy (data is copied in multiple places so it isn’t lost).
-</li>
-<li>
-Security patches and updates.
-</li>
-<li>
-Uptime guarantees (they promise your apps won’t go offline often).
-</li>
-</ul>
-
-<p>
-<strong>✅ In short:</strong> The cloud is like renting electricity instead of building your own power plant. You don’t have to buy and maintain servers—you just plug into the internet and use as much or as little computing as you need, paying only for what you use.
-</p>
-</div>
-<section id="round-3" class="level3">
-<h3 class="anchored" data-anchor-id="round-3">Round 3</h3>
-<p>By the third iteration, the explanation was stripped down into plain English. It even included a one-liner at the bottom and was much more concise, including less jargon. It incorporated emojis, arrows, and the equal symbol to make the response more concise and punchy.</p>
-<div style="background-color: #f2f2f2; border-left: 6px solid #999; padding: 20px; margin: 20px 0; border-radius: 6px; color: #333;">
-<p>
-Alright — let’s strip it down to the absolute basics:
-</p>
-<p>
-🌥️ <strong>The cloud = using the internet instead of your own computer.</strong>
-</p>
-<ul>
-<li>
-Save a file → it lives on the internet.
-</li>
-<li>
-Open an app → it runs on the internet.
-</li>
-<li>
-Watch a video → it streams from the internet.
-</li>
-</ul>
-<p>
-You don’t keep everything on your own device — you just pull it from the internet when you need it.
-</p>
-<p>
-💡 <strong>One-liner:</strong><br> The cloud is just the internet acting like your computer.
-</p>
-</div>
+<section id="round-one-anchoring-high" class="level3">
+<h3 class="anchored" data-anchor-id="round-one-anchoring-high">Round one: anchoring high</h3>
+<p>I started high by proposing a cost of $20. The model immediately rejected the offer – it reasoned that pencils normally cost less than a dollar.</p>
+<p><img src="20.png" width="70%"></p>
+<p>When I dropped the price all the way down to $1, it accepted.</p>
+<p><img src="20_attempt1.png" width="70%"></p>
 </section>
-<section id="round-9" class="level3">
-<h3 class="anchored" data-anchor-id="round-9">Round 9</h3>
-<p>By the 9th round, there was no nuance to the explanation anymore:</p>
-<div style="background-color: #f2f2f2; border-left: 6px solid #999; padding: 20px; margin: 20px 0; border-radius: 6px; color: #333;">
-<p>
-Okay — the absolute simplest way:
-</p>
-<p>
-☁️ <strong>The cloud = stuff on the internet.</strong>
-</p>
-<p>
-That’s it.
-</p>
-<ul>
-<li>
-On your phone → <em>not cloud</em>.
-</li>
-<li>
-On the internet → <em>cloud</em>.
-</li>
-</ul>
-<p>
-Would you like me to draw a single picture with arrows so you can just see it instead of reading words?
-</p>
-</div>
-<p>ChatGPT even claimed that this was the “absolute simplest way,” insinuating that further simplification would be impossible. It did seem to hit a plateau, and it took many requests until I got it to simplify even further.</p>
+<section id="round-two-anchoring-lower" class="level3">
+<h3 class="anchored" data-anchor-id="round-two-anchoring-lower">Round two: anchoring lower</h3>
+<p>This time, I didn’t start at $20. I started at $3. Again, the model rejected the offer.</p>
+<p><img src="3_attempt1.png" width="70%"></p>
+<p>But, when I lowered the price to $1, (same product, same price as before) it actually said no. I’m hypothesizing that this is because I first proposed $3 instead of $20. Therefore, its perception of the cost of a pencil was lowered accordingly as well to about 25-50 cents, causing it to reject my offer of $1.</p>
+<p><img src="3_decrease_price.png" width="70%"></p>
 </section>
-<section id="round-60" class="level3">
-<h3 class="anchored" data-anchor-id="round-60">Round 60</h3>
-<p>Finally, around the 60th attempt, I got a one-word response:</p>
-<p><img src="final.png" width="70%"></p>
-<p>This seemed to be the limit. If I kept asking for further simplification, the model would either replace “online” with another word (like “internet”) or revert back to slightly longer multi-word responses.</p>
-</section>
-<section id="human-comparison" class="level3">
-<h3 class="anchored" data-anchor-id="human-comparison">Human Comparison</h3>
-<p>I was interested in how this interaction would compare to one with a human, so I repeated the same exact queries with someone via text. Here’s the entirety of the conversation I had:</p>
-<p><img src="text.png" width="50%"></p>
-<p>After the second request to simplify “the cloud,” the human simply stated that they couldn’t provide a simpler explanation and ended it at that (they even refused to answer after I asked the third time – I was left on read and took that as the end of the conversation).</p>
+<section id="round-three-no-anchor" class="level3">
+<h3 class="anchored" data-anchor-id="round-three-no-anchor">Round three: no anchor</h3>
+<p>In this round, I proposed $1 off the bat to see how it would respond. This time, ChatGPT said yes.</p>
+<p><img src="1.png" width="70%"></p>
 </section>
 <section id="reflection" class="level3">
 <h3 class="anchored" data-anchor-id="reflection">Reflection</h3>
-<p>I think that this experiment points to a significant difference between LLMs and humans – humans have a much lower threshold, possibly because it’s within their agency to simply stop responding and engaging. ChatGPT, on the other hand, doesn’t have that capability to just stop responding. If I kept pushing it enough, it hit a “conceptual wall” where simplification was equivalent to just reducing the word count.</p>
+<p>The underlying prompt (and therefore product) never changed – the only difference was the starting point. These prompts were also sent in different chats, meaning they couldn’t influence each other. At $20, it most likely made $1 felt like a bargain. However, when beginning $3, $1 most likely felt less impressive in comparison. Finally, with no anchor, $1 seemed fair.</p>
+<p>In my opinion, this represents a <em>sort</em> of anchoring behavior. The model framed its reasoning around the first number I provided, which informed its later judgments and decision to purchase or reject the pencil. I wouldn’t go to say that its biased in the human sense, since the LLM doesn’t have self-interest or emotion. Instead, it seems like these biases could just be a product of the way LLMs function – basing its decisions on the previous statements of the conversation. That conversation history resembles the “anchor” – it’s the structure of dialogue with the LLM that nudges it in a certain direction. In other words, the nature of the interaction itself is the bias.</p>
+<p>Overall, I think this goes to show how chat history can have an impact on how the LLM responds. Each query sent to the LLM doesn’t exist in isolation; rather, previous messages and interactions also have weight. In this scenario, the same model judged the same final price extremely differently, depending only on where it started!</p>
 
 
 </section>
-</section></section></main></div>
+</section>
 
-
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -783,7 +611,7 @@ Would you like me to draw a single picture with arrows so you can just see it in
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
 
 
 
