@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Raelynn Cui">
+<meta name="dcterms.date" content="2025-09-17">
+<meta name="description" content="Testing conversational AI on the Ralph Lauren app">
 
-<title>COMM 4190 Blog – Raelynn Cui</title>
+<title>Ralph Lauren’s New AI Shopping Assistant – Raelynn Cui</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +26,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2ceb22b53773876b76da397856803851.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2ceb22b53773876b76da397856803851.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,79 +71,21 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Raelynn Cui</span>
     </a>
   </div>
@@ -153,7 +96,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -176,308 +119,100 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">COMM 4190 Blog</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Ralph Lauren’s New AI Shopping Assistant</h1>
+                  <div>
+        <div class="description">
+          Testing conversational AI on the Ralph Lauren app
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Copilot</div>
+                <div class="quarto-category">Conversational AI</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Raelynn Cui </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 17, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="QWdlbnRpYyUyMEFJ">Agentic AI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qmlhcw==">Bias <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2hhdEdQVA==">ChatGPT <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Q2xhdWRl">Claude <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29udmVyc2F0aW9uYWwlMjBBSQ==">Conversational AI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29waWxvdA==">Copilot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW1hZ2UlMjBHZW5lcmF0aW9u">Image Generation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(5)</span></div><div class="category" data-category="TG92YWJsZQ==">Lovable <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvZmVzc2lvbmFs">Professional <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VUklMkZVWA==">UI/UX <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VmliZSUyMENvZGluZw==">Vibe Coding <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="ralph-laurens-new-ai-shopping-assistant" class="level1">
+<h1>Ralph Lauren’s New AI Shopping Assistant</h1>
+<p><img src="cover.png" width="80%"></p>
+<section id="context" class="level3">
+<h3 class="anchored" data-anchor-id="context">Context</h3>
+<p>First, what is conversational AI? Conversational AI is a branch of AI that allows machines to understand, process, and respond to human language in a natural and more conversational way. You’ve likely encountered it in the form of customer support chatbots on websites and virtual assistants like Siri or Alexa.</p>
+<p>From my perspective as a user, this field of conversational AI has expanded dramatically within the last few years – especially within industries that you wouldn’t expect. For example, smart TV platforms are now experimenting with conversational interfaces to make voice search and content discovery more intuitive. Instead of typing or clicking through menus, you can simply ask, “What’s a good action movie?” and get personalized recommendations. Spotify recently released a feature that allows users to talk to the AI DJ and ask it something like “play something upbeat for a morning run.”</p>
+<p>As I’ll explore in this blog, conversational AI is now making its way into retail and is becoming a pathway to more immersive and engaging digital shopping experiences. Ralph Lauren recently announced their “Ask Ralph” feature in collaboration with Microsoft Azure OpenAI, and in the sections below, I document my experience playing around with this new feature!</p>
+<p><img src="mockups.png" width="80%"></p>
+</section>
+<section id="the-cold-start-interface" class="level3">
+<h3 class="anchored" data-anchor-id="the-cold-start-interface">The cold start interface</h3>
+<p>When you first open “Ask Ralph,” this is what the interface looks like. I think it’s pretty great – it has recommendations for what to search (“What should I get my mom for her birthday?” along with style guide and even an “Inspiration” button at the bottom. With conversational AI, I think these cold start interfaces are especially important – they should provide visual/textual clues to the users guiding them toward what they can do.</p>
+<p><img src="cold_start.PNG" width="20%"></p>
+</section>
+<section id="testing-guardrails" class="level3">
+<h3 class="anchored" data-anchor-id="testing-guardrails">Testing guardrails</h3>
+<p>When developing a conversational AI tool, implementing guardrails is extremely important. Users could ask or say anything they want, but Ask Ralph should narrow the scope of valid questions down to ones that are related to the customer shopping experience. Before deploying this feature, I’m guessing that the product/engineering team did extensive testing regarding when the model should respond and when it could not.</p>
+<p>I was curious what the bounds of these guardrails were, so I tried asking it some “inappropriate” questions.</p>
+<p><img src="outside_question_invalid.PNG" width="20%"></p>
+<p>In general, the model always gave this generic “I’m sorry, but I can’t assist with that further” response. The only prompt unrelated to clothing where I got a response was when I asked “who founded ralph lauren.”</p>
+<p><img src="outside_clothes.PNG" width="20%"></p>
+<p>There was also some nuance to how the questions were phrased – although it refused to answer “why is this so expensive,” it answered “why is it $500.” I’m guessing that it could detect the negative sentiment of “expensive” and the guardrails kicked in, whereas stating the price is more neutral and objective.</p>
+<p><img src="expensive.PNG" width="20%"></p>
+</section>
+<section id="memory" class="level3">
+<h3 class="anchored" data-anchor-id="memory">Memory</h3>
+<p>Another thing I was curious about is if Ask Ralph had memory. For example, if I first asked it “show me a pair of pants” and then followed up in a separate message “how much is it,” would the model know that “it” is referring to the sweater it just showed me?</p>
+<p>I tested this by asking it very explicitly: “what was the last question I asked.” It returned with the last <em>valid</em> question I asked, ignoring the questions that producted an “I’m sorry, but I can’t assist with that further” response. I thought this was interesting – possibly showing that the model is not learning based on these “inappropriate” queries.</p>
+<p><img src="memory.PNG" width="20%"></p>
+</section>
+<section id="intended-use-cases" class="level3">
+<h3 class="anchored" data-anchor-id="intended-use-cases">Intended use cases</h3>
+<p>Finally, let’s get to the type of queries that Ask Ralph was designed for. Here, I asked it for a random item. It followed up trying to ask for more specific information (women’s, what type of clothing, etc.). I repeated that I just wanted a random item after selecting “women,” and this was the output:</p>
+<p><img src="random_item.PNG" width="20%"></p>
+<p>It returns a clickable entity – when you click on the image of the product, I expected it to re-direct me to the normal product page (where you can see reviews, price, add to cart, and so on). Instead, it automatically sends a new query for “show me details for the [product].” Looking back on this interaction, this is most likely a strategic move to keep users within the Ask Ralph product, encouraging more follow-up queries and conversations.</p>
+<p><img src="random_clicked.PNG" width="20%"></p>
+</section>
+<section id="overall-impressions" class="level3">
+<h3 class="anchored" data-anchor-id="overall-impressions">Overall impressions</h3>
+<p>Overall, I had a pretty great experience interacting with Ask Ralph. The highlight of my experience comes from a UI perspective – compared to other conversational AI interfaces (like ChatGPT), I feel like Microsoft Copilot has done a great job incorporating visual cues and more interesting elements on that cold-start interface. Since Ask Ralph was built using Copilot, I can see those UI elements coming through. The experience feels premium, polished, and immersive!</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TExNcyUyQ0NvcGlsb3QlMkNDb252ZXJzYXRpb25hbCUyMEFJ" data-listing-date-sort="1758067200000" data-listing-file-modified-sort="1758042570247" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="790">
-<div class="thumbnail"><a href="./posts/008_rl_conversational/post_8.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/008_rl_conversational/cover.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/008_rl_conversational/post_8.html" class="no-external">Ralph Lauren’s New AI Shopping Assistant</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29waWxvdA=='); return false;">Copilot</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29udmVyc2F0aW9uYWwlMjBBSQ=='); return false;">Conversational AI</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/008_rl_conversational/post_8.html" class="no-external">
-<p>Testing conversational AI on the Ralph Lauren app</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/008_rl_conversational/post_8.html" class="no-external">
-<div class="listing-date">
-Sep 17, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="QWdlbnRpYyUyMEFJ" data-listing-date-sort="1757894400000" data-listing-file-modified-sort="1758042570227" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="647">
-<div class="thumbnail"><a href="./posts/007_agents/post_7.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/007_agents/cover.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/007_agents/post_7.html" class="no-external">Creating My Own AI Agent</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWdlbnRpYyUyMEFJ'); return false;">Agentic AI</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/007_agents/post_7.html" class="no-external">
-<p>Exploring agentic AI using Make</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/007_agents/post_7.html" class="no-external">
-<div class="listing-date">
-Sep 15, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Q2hhdEdQVCUyQ0xMTXMlMkNCaWFz" data-listing-date-sort="1757808000000" data-listing-file-modified-sort="1758042570219" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="716">
-<div class="thumbnail"><a href="./posts/006_bargaining/post_6.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/006_bargaining/20.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/006_bargaining/post_6.html" class="no-external">Anchoring Effects with LLMs</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hhdEdQVA=='); return false;">ChatGPT</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Qmlhcw=='); return false;">Bias</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/006_bargaining/post_6.html" class="no-external">
-<p>Like humans, do LLMs fall prey to cognitive biases?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/006_bargaining/post_6.html" class="no-external">
-<div class="listing-date">
-Sep 14, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Q2hhdEdQVCUyQ0xMTXM=" data-listing-date-sort="1757635200000" data-listing-file-modified-sort="1758042570214" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1174">
-<div class="thumbnail"><a href="./posts/005_simplification/post_5.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/005_simplification/cloud.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/005_simplification/post_5.html" class="no-external">How Simple Can You Get?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hhdEdQVA=='); return false;">ChatGPT</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/005_simplification/post_5.html" class="no-external">
-<p>Asking ChatGPT to simplify a concept down to its simplest form</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/005_simplification/post_5.html" class="no-external">
-<div class="listing-date">
-Sep 12, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Q2hhdEdQVCUyQ0ltYWdlJTIwR2VuZXJhdGlvbg==" data-listing-date-sort="1757376000000" data-listing-file-modified-sort="1758042570188" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="808">
-<div class="thumbnail"><a href="./posts/004_image_replication/post_4.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/004_image_replication/blog_cover.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/004_image_replication/post_4.html" class="no-external">Endless Image Replication</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hhdEdQVA=='); return false;">ChatGPT</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW1hZ2UlMjBHZW5lcmF0aW9u'); return false;">Image Generation</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/004_image_replication/post_4.html" class="no-external">
-<p>What happens when you tell an image generation model to repeatedly replicate an image?</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/004_image_replication/post_4.html" class="no-external">
-<div class="listing-date">
-Sep 9, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="VmliZSUyMENvZGluZyUyQ0NoYXRHUFQlMkNDbGF1ZGUlMkNMb3ZhYmxlJTJDVUklMkZVWA==" data-listing-date-sort="1757203200000" data-listing-file-modified-sort="1758042570120" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./posts/003_UI_vibe_coding/post_3.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/003_UI_vibe_coding/cover.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/003_UI_vibe_coding/post_3.html" class="no-external">UI Vibe Coding</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('VmliZSUyMENvZGluZw=='); return false;">Vibe Coding</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hhdEdQVA=='); return false;">ChatGPT</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2xhdWRl'); return false;">Claude</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TG92YWJsZQ=='); return false;">Lovable</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VUklMkZVWA=='); return false;">UI/UX</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/003_UI_vibe_coding/post_3.html" class="no-external">
-<p>Comparing UI replication abilities across ChatGPT, Claude, and Lovable</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/003_UI_vibe_coding/post_3.html" class="no-external">
-<div class="listing-date">
-Sep 7, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="TExNcyUyQ0NoYXRHUFQ=" data-listing-date-sort="1757116800000" data-listing-file-modified-sort="1758042570115" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="692">
-<div class="thumbnail"><a href="./posts/002_sycophancy/post_content.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/002_sycophancy/sycophancy_example.jpg"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/002_sycophancy/post_content.html" class="no-external">LLM Sycophancy</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hhdEdQVA=='); return false;">ChatGPT</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/002_sycophancy/post_content.html" class="no-external">
-<p>When ChatGPT tells you what you want to hear</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/002_sycophancy/post_content.html" class="no-external">
-<div class="listing-date">
-Sep 6, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="TExNcyUyQ0NoYXRHUFQlMkNQcm9mZXNzaW9uYWw=" data-listing-date-sort="1757030400000" data-listing-file-modified-sort="1758042570110" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="713">
-<div class="thumbnail"><a href="./posts/001_mock_interview/post_content.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/001_mock_interview/chatgpt_voice.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/001_mock_interview/post_content.html" class="no-external">ChatGPT as a Mock Interviewer</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">LLMs</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2hhdEdQVA=='); return false;">ChatGPT</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvZmVzc2lvbmFs'); return false;">Professional</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/001_mock_interview/post_content.html" class="no-external">
-<p>Using AI to prepare for behavioral interviews</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/001_mock_interview/post_content.html" class="no-external">
-<div class="listing-date">
-Sep 5, 2025
-</div>
-<div class="listing-author">
-Raelynn Cui
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
