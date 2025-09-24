@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2025-09-24T16:30:14.721Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/004_image_replication/post_4.html</loc>
-    <lastmod>2025-09-24T16:30:14.802Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/007_agents/post_7.html</loc>
-    <lastmod>2025-09-24T16:30:14.842Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/002_sycophancy/post_content.html</loc>
-    <lastmod>2025-09-24T16:30:14.728Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/005_simplification/post_5.html</loc>
-    <lastmod>2025-09-24T16:30:14.828Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/001_mock_interview/post_content.html</loc>
-    <lastmod>2025-09-24T16:30:14.723Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/006_bargaining/post_6.html</loc>
-    <lastmod>2025-09-24T16:30:14.834Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/011_book_1/post_11.html</loc>
-    <lastmod>2025-09-24T16:30:14.898Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/010_talk_like_friend/post_10.html</loc>
-    <lastmod>2025-09-24T16:30:14.882Z</lastmod>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/about.html</loc>
+    <lastmod>2025-09-24T21:27:29.254Z</lastmod>
   </url>
   <url>
     <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/003_UI_vibe_coding/post_3.html</loc>
-    <lastmod>2025-09-24T16:30:14.733Z</lastmod>
+    <lastmod>2025-09-24T21:27:29.266Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/001_mock_interview/post_content.html</loc>
+    <lastmod>2025-09-24T21:27:29.257Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/006_bargaining/post_6.html</loc>
+    <lastmod>2025-09-24T21:27:29.366Z</lastmod>
   </url>
   <url>
     <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/009_utopia/post_9.html</loc>
-    <lastmod>2025-09-24T16:30:14.874Z</lastmod>
+    <lastmod>2025-09-24T21:27:29.406Z</lastmod>
   </url>
   <url>
     <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/008_rl_conversational/post_8.html</loc>
-    <lastmod>2025-09-24T16:30:14.862Z</lastmod>
+    <lastmod>2025-09-24T21:27:29.394Z</lastmod>
   </url>
   <url>
-    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2025-09-24T16:30:14.721Z</lastmod>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/index.html</loc>
+    <lastmod>2025-09-24T21:27:29.254Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/002_sycophancy/post_content.html</loc>
+    <lastmod>2025-09-24T21:27:29.261Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/011_book_1/post_11.html</loc>
+    <lastmod>2025-09-24T21:27:29.430Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/005_simplification/post_5.html</loc>
+    <lastmod>2025-09-24T21:27:29.361Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/004_image_replication/post_4.html</loc>
+    <lastmod>2025-09-24T21:27:29.335Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/010_talk_like_friend/post_10.html</loc>
+    <lastmod>2025-09-24T21:27:29.414Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raelynncui.github.io/comm4190_F25_Using_LLMs_Blog/posts/007_agents/post_7.html</loc>
+    <lastmod>2025-09-24T21:27:29.374Z</lastmod>
   </url>
 </urlset>
