@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Raelynn Cui">
-<meta name="dcterms.date" content="2025-09-15">
-<meta name="description" content="Exploring agentic AI using Make">
+<meta name="dcterms.date" content="2025-10-20">
+<meta name="description" content="A chat feature that allows you to ask anything about the video">
 
-<title>Creating My Own AI Agent – Raelynn Cui</title>
+<title>Youtube’s Conversational AI – Raelynn Cui</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,14 +120,15 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Creating My Own AI Agent</h1>
+      <h1 class="title">Youtube’s Conversational AI</h1>
                   <div>
         <div class="description">
-          Exploring agentic AI using Make
+          A chat feature that allows you to ask anything about the video
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Agentic AI</div>
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">Conversational AI</div>
               </div>
                   </div>
   </div>
@@ -145,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 15, 2025</p>
+        <p class="date">October 20, 2025</p>
       </div>
     </div>
     
@@ -164,38 +165,37 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="creating-my-own-ai-agent" class="level1">
-<h1>Creating My Own AI Agent</h1>
+<section id="youtubes-conversational-ai" class="level1">
+<h1>Youtube’s Conversational AI</h1>
 <p><img src="cover.png" width="100%"></p>
-<section id="context" class="level3">
-<h3 class="anchored" data-anchor-id="context">Context</h3>
-<p>Recently, I’ve been curious about agentic AI – especially after seeing how companies like OpenAI and Salesforce are integrating these capabilities into their products. The whole idea felt a bit overwhelming at first, but I’ve learned that the best way for me to make sense of and get familiar with these technical concepts is just to dive in and play around with them.</p>
-<p>In this blog post, I document my experience creating my own (very basic and simple) AI agent using Make, a site that allows you to visually create, build and automate workflows!</p>
-<p><img src="make.png" width="80%"></p>
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>Recently, while watching a YouTube video, I noticed a new “Ask” button that appeared below the video. When I clicked it, a chat window popped up to the right of the video, where it prompted me to ask questions about the video I was watching.</p>
+<p><img src="ai.png" width="80%"></p>
+<p>I had never noticed this feature before, but it has apparently existed for a while – previously only for Premium users. However, it seems like it’s now available for all accounts over the age of 18, according to YouTube.</p>
+<p>Emotions online seem mixed – some people are excited about this feature (since it would allow users new to a channel with lots of history to get caught up quicker, for example), whereas others are not (since it poses privacy concerns for these video creators).</p>
+<p>This new feature is just one of many AI-driven innovations that YouTube has released in <a href="https://blog.youtube/inside-youtube/2024-in-youtube-ai/">2024</a>. Others include: - AI Video Summaries - Live Chat Summaries - Ask Music (users can describe a mood or vibe and get a curated playlist) - Inspiration (helps content creators brainstorm ideas) - Auto Dubbing - Dream Screen (allows content creators to create AI-generated backgrounds for videos) - Dream Track (allows content creators to create AI-generated soundtracks for videos) - Posts (a space for content creators to workshop new posts with the help of AI)</p>
 </section>
-<section id="what-is-agentic-ai" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-agentic-ai">What is agentic AI?</h3>
-<p>Agentic AI is AI that is <em>proactive</em> – it has agency to perform tasks by planning, acting, and sometimes proactively deciding how to reach a goal across multiple steps or tools. Generative AI, on the other hand, is more <em>reactive</em> – it only responds to prompts given by the user.</p>
-<p>Putting things together in Make</p>
-<p>My experiment was simple and straightforward – I wanted to pull in events from my Google Calendar, run them through AI to get notes on how I should prepare for these events, and save everything neatly into a Google Sheet.</p>
-<p>The workflow was as follows: - Google Calendar = fetches my events - Make AI Toolkit = asks “what should I do to prepare for each event?” - Google Sheets = stores the answers</p>
-<p>Make makes this process simple and visually intuitive to understand. Each circle is a module, which can draw from a wide range of apps/formats/platforms like Google Drive, JSON, OpenAI, and so on. When you add a module, you may have to give permissions (such as permission for Make to access my Google Calendar) or enter API keys (such as if you were using the OpenAI module). Modules can then be linked together to form a flow!</p>
-<p><img src="module.png" width="70%"></p>
-<p>While the layout was extremely intuitive, I still ran into many issues throughout this process. For example, in one of my earlier iterations, I didn’t have the Google Sheets module and was attempting to get the output directly from the Make AI Toolkit.</p>
-<p>However, The way Make handles data means every calendar event comes in as a separate “bundle.” This meant I wasn’t getting one nice weekly checklist; rather, I was getting ten scattered AI outputs.</p>
-<p><img src="bundle.png" width="40%"></p>
-<p>So, I consulted ChatGPT for help. I fed it an image of my workflow and had it suggest solutions for me to implement. It suggested either 1) using an aggregator component after the Google Calendar to collect all event details into a single text block or 2) adding another AI component to summarize the results into one output. I wasn’t able to get these recommendations to work, so I instead suggested adding a Google Sheet and asked ChatGPT where to go from there. From there, it was able to successfully instruct me how to configure this component to add each checklist as a row in a Google Sheet that lives in my personal Google Drive!</p>
-<p>I thought this part was pretty cool – I was using AI to help me build an AI agent.</p>
-<p><img src="output.png" width="70%"></p>
+<section id="how-does-it-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-does-it-work">How does it work?</h2>
+<p>I couldn’t find much online about what’s powering this LLM. According to <a href="https://support.google.com/youtube/answer/14110396?hl=en#zippy=%2Cwho-can-use-the-conversational-ai-tool-on-youtube%2Chow-does-the-conversational-ai-tool-on-youtube-work%2Cwhat-data-is-collected-how-is-it-used">YouTube Help</a>:</p>
+<blockquote class="blockquote">
+<p>This tool is designed to provide answers to questions about videos you’re watching. Responses are generated by large language models (LLMs). The LLMs draw on info from YouTube and the web.</p>
+</blockquote>
+<p>Based on my brief experience with this tool, which I describe below, the LLM seems to make use of the video’s transcript and timestamps to generate answers.</p>
 </section>
-<section id="the-ai-responses" class="level3">
-<h3 class="anchored" data-anchor-id="the-ai-responses">The AI responses</h3>
-<p>Overall, I thought the checklists that the AI generated were pretty good! It only had the title, time, and location of my Google Calendar events to work off of. This was the response it generated for my friend’s housewarming – it was able to identify that “Elli” in the title was refering to someone called Elli and also understood the conventions around housewarmings (buying a gift, a possible potluck, transportation, etc.).</p>
-<p><img src="housewarming.png" width="70%"></p>
+<section id="my-experience" class="level2">
+<h2 class="anchored" data-anchor-id="my-experience">My experience</h2>
+<p>In the video I was watching, the creator was making a banana cream latte in a very casual, vlog-style format (not a formal recipe vide). So, I prompted “give me the recipe she uses for the banana cream latte.” I figure that this would be a good test for the LLM’s capabilities, since the steps and ingredients for this recipe were scattered throughout the clip and not cleanly formatted.</p>
+<p><img src="1.png" width="30%"></p>
+<p><img src="2.png" width="30%"></p>
+<p>The response was formatted as a concise, easy-to-follow recipe with timestamps accompanying each step. The abundance of timestamps was really interesting to me, and I didn’t expect it. This makes me think that the results are based on a time-stamped transcript, which the LLM reads and then generates a response based on.</p>
+<p>Overall, this response was surprisingly impressive! I verified the recipe and the LLM was able to pinpoint each of the steps, despite the person in the video occassionally going off topic and discussing things other than the recipe. This shows that the LLM was able to capture the continuity of information across a longer period of time and was not thrown off by off-topic transcriptions. Additionally, the LLM picked up on the precise wording of the creator, incorporating the brand names correctly (Monin, Nescafe) as well as nuanced measurements (“tiniest splash”).</p>
 </section>
-<section id="next-steps" class="level3">
-<h3 class="anchored" data-anchor-id="next-steps">Next steps</h3>
-<p>This agent I created was extremely simple, so making it more complex could be a fun next project. I’m thinking about adding an AI module that parses the events, identifies ones that may require additional documents from Google Drive (notes, slideshows, etc.) or even makes them if necessary, and adds them to the spreadsheet as well!</p>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>As a YouTube viewer myself, I can’t think of scenarios in which I would want to engage with this feature, as cool as it is. This is because watching videos is more of a passive activity for me – I often leave YouTube videos on as I’m doing chores, eating, and getting ready for the day. During these activities, there’s not really a time when I would want to drop what I’m doing and ask the LLM a question.</p>
+<p>However, I can definitely see the potential of this feature for tutorial and educational videos. For example, if I was viewing a math video and was having trouble understanding the concept that the instructor was writing on the screen, this feature could defintely come in handy (however, this would require it to be able to visually analyze the frames of the video and not rely solely on the transcripts). I think it’s an interesting strategic push by YouTube to make viewing more immersive and interactive, and I’m excited to see how AI changes the media landscape even more in the future!</p>
 
 
 </section>
