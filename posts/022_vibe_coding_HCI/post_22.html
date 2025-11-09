@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Raelynn Cui">
-<meta name="dcterms.date" content="2025-09-07">
-<meta name="description" content="Comparing UI replication abilities across ChatGPT, Claude, and Lovable">
+<meta name="dcterms.date" content="2025-11-09">
+<meta name="description" content="Building a Rock Climbing Social Feed with ChatGPT">
 
-<title>UI Vibe Coding – Raelynn Cui</title>
+<title>Vibe Coding: Part 2 – Raelynn Cui</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,17 +120,15 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">UI Vibe Coding</h1>
+      <h1 class="title">Vibe Coding: Part 2</h1>
                   <div>
         <div class="description">
-          Comparing UI replication abilities across ChatGPT, Claude, and Lovable
+          Building a Rock Climbing Social Feed with ChatGPT
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">Vibe Coding</div>
                 <div class="quarto-category">ChatGPT</div>
-                <div class="quarto-category">Claude</div>
-                <div class="quarto-category">Lovable</div>
                 <div class="quarto-category">UI/UX</div>
               </div>
                   </div>
@@ -149,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 7, 2025</p>
+        <p class="date">November 9, 2025</p>
       </div>
     </div>
     
@@ -168,71 +166,42 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="ui-vibe-coding" class="level1">
-<h1>UI Vibe Coding</h1>
-<section id="context" class="level3">
-<h3 class="anchored" data-anchor-id="context">Context</h3>
-<p>In the past, I’ve experimented a bit with vibe coding by having ChatGPT assist me with things like writing a script to automate the downloading of images from HTML, writing a script to parse through a JSON to extract certain fields, and writing a Python script to extract numerical data from a line graph image using edge detection software.</p>
+<section id="vibe-coding-part-2" class="level1">
+<h1>Vibe Coding: Part 2</h1>
+<p>In a previous post, I documented my experience experimenting with using different platforms to vibe-code user interfaces – ChatGPT, Claude, and Lovable. As a reminder:</p>
 <div style="border: 2px solid #f39c12; border-radius: 8px; padding: 12px; background-color: #fff7e6;">
 <p><em>Vibe coding: an emerging software development approach in which a human developer directs an AI system through high-level, natural language instructions and iterative feedback, while the AI handles the generation, refinement, and debugging of the code.</em></p>
 </div>
-<p>However, I’ve never used AI models to vibe code UIs! As a lover of UI/UX design, I’ve historically stuck to Figma to manually prototype my designs. In this blog post, I document my experience using three different AI tools to generate mockups of my Figma designs in HTML/CSS – Claude, ChatGPT, and Lovable! For this exercise, I’m not prompting these models to create functioning and clickable prototypes – just the UI.</p>
+<p>While this previous post was just me playing around for fun, I recently had the chance to actually apply vibe-coding skills to an assignment in my Human Computer Interaction (CIS 4120) class**. In this blog post, I reflect on my experience using ChatGPT to develop a home social page for a rock climbing mobile app!</p>
+<p>** Using AI is allowed in this class for this assignment</p>
 <p><img src="cover.png" width="100%"></p>
+<p>For this HCI class project, my team was building a React Native app. I had written code before (mainly in Java and a bit of HTML), but mobile development is completely new and foreign to me. My task was to create a local social feed for a rock climbing app, where users can scroll through posts, tap to view videos, and leave comments.</p>
+<p>A mockup of the UI I designed can be seen above. My goal was to implement this, not just visually but also functionally!</p>
+<section id="structing-the-conversation-with-chatgpt" class="level2">
+<h2 class="anchored" data-anchor-id="structing-the-conversation-with-chatgpt">Structing the conversation with ChatGPT</h2>
+<p>Because I’m completely new to React Native and mobile development, I began the conversation with ChatGPT by first briefly explaining what I wanted to implement:</p>
+<blockquote class="blockquote">
+<p>Social Feed - We will maintain some form of storage for posts that occur from users, and new posts will be displayed in each user’s social feed. For this feature, I want to store the posts in the social feed as a list of objects LOCALLY. Each object corresponds to a post.</p>
+</blockquote>
+<p>I figured that, because I was new to mobile development, there were likely many implementation details that I wasn’t considering (and that ChatGPT wouldn’t be able to deduce from the UI screenshots I provided it). So, I prompted it:</p>
+<blockquote class="blockquote">
+<p>Before diving in how to implement this, ask me any questions you would need to know to execute this flawlessly.</p>
+</blockquote>
+<p>I felt that this previous request – asking the LLM to ask <em>me</em> questions, was actually a game changer. I knew how I wanted the app to behave as a user (e.g.&nbsp;when you tap on a post, it should show XYZ), but wasn’t aware of how this should be specified in the actual code. Therefore, having ChatGPT supply me with these questions gave the system a more detailed and accurate description of how I wanted the app to behave, producing much better outcomes than if I had used my initial description of the social feed.</p>
+<p>It gave me 24 questions in total. Here are some of them: - What fields should a post have? (e.g., id, authorId, authorName, avatar, createdAt, text, images[]/video, gymId, holdsTagged, likes, comments[], saved, visibility). - If media exists, are we storing file paths/URIs only (recommended), or the raw bytes (not recommended)? - Do we need pagination/infinite scroll, or just render all posts for now? - Which actions are in scope now: like, comment, save/bookmark, share, delete, edit? - State management preference: simple React Context, Zustand, or local component state? - Do you want seed data (e.g., 10 example posts) on first launch?</p>
+<p><img src="app.png" width="50%"></p>
 </section>
-<section id="the-prompt-thinking" class="level3">
-<h3 class="anchored" data-anchor-id="the-prompt-thinking">The Prompt &amp; Thinking</h3>
-<div style="display: flex; align-items: flex-start; margin: 20px 0;">
-<!-- First image + caption -->
-<figure style="margin: 0; flex: 0 0 auto; margin-right: 28px; text-align: center;" class="figure">
-<img src="mockup.png" alt="My Figma mockup" style="display: block; height: 400px; width: auto; border-radius: 8px;" class="figure-img">
-<figcaption style="margin-top: 8px; font-size: 14px; color: #555;">
-My Figma mockup
-</figcaption>
-</figure>
-<!-- Second image + caption -->
-<figure style="margin: 0; flex: 0 0 auto; text-align: center;" class="figure">
-<img src="thinking.png" alt="Lovable's thinking" style="display: block; height: 400px; width: auto; border-radius: 8px;" class="figure-img">
-<figcaption style="margin-top: 8px; font-size: 14px; color: #555;">
-Lovable’s thinking
-</figcaption>
-</figure>
-</div>
-<section id="for-each-of-the-models-i-prompted-it-to-replicate-this-mobile-ui-using-htmlcss-with-this-image-my-figma-mockup-attached." class="level5">
-<h5 class="anchored" data-anchor-id="for-each-of-the-models-i-prompted-it-to-replicate-this-mobile-ui-using-htmlcss-with-this-image-my-figma-mockup-attached.">For each of the models, I prompted it to “replicate this mobile UI using html/css,” with this image my Figma mockup attached.</h5>
-<p>The models notably differed in how they responded to the prompts: - ChatGPT thought for 9 seconds, with one of its lines of reasoning being: “I’m planning to create a full HTML/CSS layout with a mobile-friendly design (390x844). It will have top tabs for”tasks” and “calendar” in pill shapes with navy and tan colors. The bottom bar will feature icons like emoji/SVG. For tasks, I’ll create cards with checkboxes, names, due dates, and avatars. We’ll use specific color variables like navy blue #2F3A8C and others for consistency in design.” - Lovable thought for 19 seconds, with an even more extensive line of reasoning (see photo above). I found that this more modular and detailed reasoning produced a significantly better outcome, which I describe in the next section.</p>
+<section id="iterating-on-code-and-design" class="level2">
+<h2 class="anchored" data-anchor-id="iterating-on-code-and-design">Iterating on code and design</h2>
+<p>After I had given ChatGPT all the context it required, it began generating code for me. This process was more complicated and required significantly more mental energy, since it was generating long lines of code for me in one shot. If I encountered an error or was confused about something halfway through its response, I was afraid that if I began asking questions and going off topic in that same chat, I would lose the clarity of what ChatGPT had generated for the second half that I had yet to get to.</p>
+<p>To address these concerns, I made use of ChatGPT’s “branch in new chat” feature, which creates a new chat that retains your previous messages (and therefore context) up to that point.</p>
+<p><img src="branch.png" width="30%"></p>
+<p>In the end, I had one chat that acted as a “source of truth” for the first one-shot ChatGPT generated, and many branched chat where I asked follow-up questions and clarifications.</p>
 </section>
-</section>
-<section id="outputs" class="level3">
-<h3 class="anchored" data-anchor-id="outputs">Outputs</h3>
-<section id="chatgpt" class="level5">
-<h5 class="anchored" data-anchor-id="chatgpt">ChatGPT</h5>
-<p><img src="chatgptop.png" alt="ChatGPT's output" style="width:400px; border-radius:8px;"></p>
-<p>Overall, ChatGPT’s output was pretty good. It captured the color scheme relatively well, but not perfectly (some inconsistencies with the horizontal bars). It also maintained the basic layout: tabs at the top, a horizontal navigation bar at the bottom, and horizontal bars with a checkable box and text. I found it interesting that it even replaced the avatar images with emojis that still resembled the people!</p>
-</section>
-<section id="claude" class="level5">
-<h5 class="anchored" data-anchor-id="claude">Claude</h5>
-<p><img src="claudeop.png" alt="Claude's output" style="width:400px; border-radius:8px;"></p>
-<p>Claude’s output was also decent, but not as great as ChatGPT’s, in my opinion. The color scheme was not as accurate, but it did handle the shape of the top “tasks” and “calendar” tabs better than GPT. However, it added some features that weren’t present in the Figma mockup I provided – gradients behind the avatars and strikethroughs for the completed tasks.</p>
-</section>
-<section id="lovable" class="level5">
-<h5 class="anchored" data-anchor-id="lovable">Lovable</h5>
-<div style="display: flex; align-items: flex-start; margin: 20px 0;">
-<!-- First image + caption -->
-<figure style="margin: 0; flex: 0 0 auto; margin-right: 28px; text-align: center;" class="figure">
-<img src="lovableop.png" alt="Lovable's output" style="display: block; height: 400px; width: auto; border-radius: 8px;" class="figure-img">
-</figure>
-<!-- Second image + caption -->
-<figure style="margin: 0; flex: 0 0 auto; text-align: center;" class="figure">
-<img src="prototype.gif" alt="Lovable's prototype" style="display: block; height: 400px; width: auto; border-radius: 8px;" class="figure-img">
-</figure>
-</div>
-<p>Lovable’s output was underwhelming at first – the color scheme looks different and the top tab navigation is off as well.</p>
-<p>However, when you interact with the prototype, it outperforms ChatGPT and Claude by far. Even though I didn’t prompt it to include these functionalities, it allows you to check (and uncheck!) tasks, toggle between the tasks and calendar page, and click the “add task” button.</p>
-</section>
-</section>
-<section id="reflections" class="level3">
-<h3 class="anchored" data-anchor-id="reflections">Reflections</h3>
-<p>For UI accuracy (text, colors, layout), I think ChatGPT performed the best. However, for functionality, Lovable was superior, which is reflective of its much longer and more thorough “thinking” process. Whereas ChatGPT took 9 seconds to seemingly generate the prototype in one shot, Lovable took 19 seconds, working step by step through each component of the interface. Overall, I think this goes to show the importance of playing around with different models to determine which supports your needs the most! In the future, I think it would be interesting to play around with building a functioning app isntead of one static interface.</p>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>This experience was surprisingly less successful than I had expected. Although I was able to successfully implement this social feed, when I met with my group members (who were experienced with developing mobile apps and using React Native), it turns out that I had actually made this implementation more complex than necessary. Yes, the app was able to function properly, but in the process, I had generated many new and unnecessary folders and files. There was actually a more streamlined and concise way to implement this feature, more suitable for this assignment being more of an MVP (minimum viable product) instead of a fully fleshed-out app.</p>
+<p>I think that this highlights an important limitation of using LLMs for vibe coding – these models can’t comprehensively tell you what you don’t know. I thought that I was avoiding this pitfall by having ChatGPT ask <em>me</em> questions about my desired functionality, but in reality, there was much more that it was not asking me (e.g.&nbsp;how complex this implementation should be). So, in this case, there were these “unknown unknowns” that I couldn’t realize, even with the help of an LLM.</p>
 
 
 </section>
