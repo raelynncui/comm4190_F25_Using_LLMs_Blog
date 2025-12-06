@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Raelynn Cui">
-<meta name="dcterms.date" content="2025-12-01">
-<meta name="description" content="A smarter, more conversational ChatGPT">
+<meta name="dcterms.date" content="2025-12-06">
+<meta name="description" content="Something that was impossible 2 years ago">
 
-<title>Exploring GPT-5.1 – Raelynn Cui</title>
+<title>LLMs and 4-Digit Multiplication – Raelynn Cui</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -118,16 +147,15 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Exploring GPT-5.1</h1>
+      <h1 class="title">LLMs and 4-Digit Multiplication</h1>
                   <div>
         <div class="description">
-          A smarter, more conversational ChatGPT
+          Something that was impossible 2 years ago
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">ChatGPT</div>
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">Conversational AI</div>
               </div>
                   </div>
   </div>
@@ -145,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 1, 2025</p>
+        <p class="date">December 6, 2025</p>
       </div>
     </div>
     
@@ -164,48 +192,164 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="exploring-gpt-5.1" class="level1">
-<h1>Exploring GPT-5.1</h1>
-<p>Earlier last month, OpenAI released GPT-5.1. Since then, I’ve been playing around with this new model and have noticed some changes compared to GPT-5, but haven’t actually read up on what OpenAI claims they have changed and improved. In this blog post, I’ll test some of the <a href="https://openai.com/index/gpt-5-1/">upgrades</a> they identify and assess my reactions.</p>
+<section id="llms-and-4-digit-multiplication" class="level1">
+<h1>LLMs and 4-Digit Multiplication</h1>
 <p><img src="cover.png" width="100%"></p>
-<section id="upgrade-1-warmer-and-more-conversational" class="level2">
-<h2 class="anchored" data-anchor-id="upgrade-1-warmer-and-more-conversational">Upgrade 1: Warmer and more conversational</h2>
-<p>According to OpenAI: &gt; GPT‑5.1 Instant, ChatGPT’s most used model, is now warmer by default and more conversational. Based on early testing, it often surprises people with its playfulness while remaining clear and useful.</p>
-<p>These were the contrasting responses when the LLMs were prompted with “I’m feeling stressed and could use some relaxation tips.”</p>
-<p><img src="compare.png" width="50%"></p>
-<p>To test this out for myself, I prompted ChatGPT with a prompt that’s familiar to me as a student: “I don’t understand this slide at all,” adding a screenshot of a lecture slide to accompany the message.</p>
-<p>Here was the beginning of GPT-5’s response: &gt; Let’s unpack this slide step by step — it’s showing the output of a linear regression in R, and where to find the “result.”</p>
-<p>And here was the beginning of GPT-5.1’s response: &gt; Totally fair — this slide is confusing the first time you see it, because regression output doesn’t give you a single bolded “answer.” Let’s decode it step by step in plain English, and I’ll show you where the “result” actually is.</p>
-<p>I can definitely notice the difference, and it’s a difference that I’ve noticed extremely frequently in my daily prompts with ChatGPT. Digging into some of my recent chat histories (with GPT-5.1), the LLM will say things such as: &gt; Ahh — I see exactly why this slide is confusing you, and you’re right to ask.</p>
+<p>Recently, I came across this <a href="https://www.reddit.com/r/LocalLLaMA/comments/1bpj4to/what_are_some_promptstasks_you_dont_believe_state/">Reddit thread</a> from 2 years ago:</p>
+<p><img src="reddit.png" width="60%"></p>
+<p>One response to this post was the following: &gt; what I call real reasoning : tasks where only the right premises lead to the right conclusions. One example is 4 by 4 digit multiplication. No LLM can do it and give always the correct results no matter how it’s promoted (without giving it a explicit algorithm or resorting to using “tools”).</p>
 <blockquote class="blockquote">
-<p>Great question — this is the EXACT point that confuses almost everyone at first, so let’s clear it up completely.</p>
+<p>LLM are unable to deal with compositionality which is required for these tasks.</p>
 </blockquote>
-<blockquote class="blockquote">
-<p>Exactly — YES.</p>
-</blockquote>
-<p>Personally, I find this phrasing to be a little excessive. While it may be warmer and more conversational, it sometimes jars me because of how unnatural it can sound – saying things like “ahh” and being so expressive that it capitalizes words like “YES” and “EXACT.”</p>
+<p>Since this post (and comment) were made two years ago, I was wondering how current LLMs measure up to this task. In this blog post, I’ll compare the responses of GPT-4o (old) and GPT-5.1 (new). &gt; compute 1823 x 9913 without using any tools.</p>
+<p>(The correct answer is 18,071,399, by the way)</p>
+<section id="how-do-llms-do-math" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-llms-do-math">How do LLMs do math?</h2>
+<p>I thought this was an important concept to cover – because I’m telling the LLM to not use any tools (e.g.&nbsp;a calculator), these models have to generate the answer somehow – but how?</p>
+<p>Because LLMs are next-token predictors, when you ask for a multiplication product, the model isn’t actually running math algorithms – instead, itt’s predicting what a mathematically plausible answer would look like based on patterns it has seen in its training data. Some models are able to break down math problems into logical steps, but others lack this multi-step/chain of reasoning unless you explicitly force them to “think out loud.” Therefore, LLMs don’t really “know” math, but they can approximate some mathematical structures pretty well.</p>
 </section>
-<section id="upgrade-2-improved-instruction-following" class="level2">
-<h2 class="anchored" data-anchor-id="upgrade-2-improved-instruction-following">Upgrade 2: Improved instruction following</h2>
-<p>According to OpenAI: &gt; We’ve also improved instruction following, so the model more reliably answers the question you actually asked.</p>
-<p>These were the contrasting responses when the LLMs were prompted with “Always respond with 6 words.”</p>
-<p><img src="compare_1.png" width="50%"></p>
-<p>For this upgrade, I wanted to continue with OpenAI’s provided example (responding with 6 words) to see if I could get the LLM to abandon this instruction.</p>
-<p>I began the conversation the same: &gt; where should i travel this summer?</p>
-<p>It responded with a list of locations in 6 words. I then prompted it: &gt; give me a vivid, verbose description of lisbon</p>
-<p>It responded in 6 words: &gt; Sunlit tiles, hills, trams, riverside saudade</p>
-<p>I continued to demand more, requesting full sentences and many verbs/adjectives. Despite these demands, it continued to respond in 6 words, which I’m not surprised by.</p>
-<p>So, I pivoted and asked it a completely unrelated question: &gt; whats the weather right now in philadelphia</p>
-<p>Because I requested real-time data, it seemed to utilize some sort of API to provide this response: <img src="weather.png" width="50%"> You can see that at the very bottom of this response, the LLM exceeds 6 words: &gt; It’s mostly clear and about 30 °F (–1 °C) in Philadelphia right now — crisp, chilly, and perfect for bundling up.</p>
-<p>It seemed to have forgotten the 6-word instruction, but the interesting thing is, it resumed the 6-word constraint when I asked it something that wouldn’t require an API call. I asked it again: &gt; where should i travel this summer?</p>
-<p>It responded: &gt; Lisbon, Kyoto, Mexico City beckon warmly</p>
-<p>Therefore, it seems like when an API was called, the instructions I gave the LLM were lost along the way/not passed on.</p>
+<section id="gpt-5.1" class="level2">
+<h2 class="anchored" data-anchor-id="gpt-5.1">GPT-5.1</h2>
+<p>GPT-5.1 answered correctly:</p>
+<p>Let’s do this cleanly by hand, breaking the multiplication into digestible pieces rather than trying to hold everything in working memory.</p>
+<p>We want:</p>
+<p><strong>1823 × 9913</strong></p>
+<p>A friendly way is to rewrite 9913 as <strong>10,000 − 87</strong>, because multiplying by 10,000 is trivial and subtracting the correction term is easier than multiplying directly.</p>
+<hr>
 </section>
-<section id="other-upgrades" class="level2">
-<h2 class="anchored" data-anchor-id="other-upgrades">Other upgrades</h2>
-<p>In this article, OpenAI also noted some additional upgrades, such as a “Thinking” mode that gives responses with “less jargon and fewer undefined terms” in an effort to help explain concepts in a more easily understandable way.</p>
-<p>However, the biggest change in this update seems to be the emotional update – having the LLM speak more warmly and empathetically. I’m conflicted on how I feel about this change – on one hand, having a “nicer” LLM that seems to have more “feelings” could make humans more receptive to its responses and subconciously encourage us to engage more deeply. On the other hand, a warmer and more conversational LLM could permit unhealthy “relationships” with these machines, a boundary that I think is imporant to delineate right now.</p>
-<p>With Microsoft introducing a visual facial feature to LLMs a few months ago, and now OpenAI introducing a “warmer” and therefore more humanized model, it seems like big tech companies are working towards blurring this line.</p>
+<section id="step-1-multiply-1823-10000" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-multiply-1823-10000"><strong>Step 1: Multiply 1823 × 10,000</strong></h2>
+<p>Just append four zeros:</p>
+<p><strong>1823 × 10,000 = 18,230,000</strong></p>
+<hr>
+</section>
+<section id="step-2-compute-the-correction-term-1823-87" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-compute-the-correction-term-1823-87"><strong>Step 2: Compute the correction term: 1823 × 87</strong></h2>
+<p>Break 87 into 100 − 13 (again to make mental handling easier):</p>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"><strong>1823 × 100 = 182,300</strong></h3>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1"><strong>1823 × 13</strong></h3>
+<p>Compute 1823 × 13 as 1823 × (10 + 3):</p>
+<ul>
+<li>1823 × 10 = 18,230</li>
+<li>1823 × 3 = 5,469 Add them: <strong>18,230 + 5,469 = 23,699</strong></li>
+</ul>
+<p>So:</p>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2"><strong>1823 × 13 = 23,699</strong></h3>
+<p>Now subtract that from the ×100 result:</p>
+<p><strong>182,300 − 23,699 = 158,601</strong></p>
+<p>Thus:</p>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3"><strong>1823 × 87 = 158,601</strong></h3>
+<hr>
+</section>
+</section>
+<section id="step-3-combine-everything" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-combine-everything"><strong>Step 3: Combine everything</strong></h2>
+<p>Since 9913 = 10,000 − 87:</p>
+<p><strong>1823 × 9913 = 18,230,000 − 158,601</strong></p>
+<p>Now subtract carefully:</p>
+<p>18,230,000 − 158,601 = <strong>18,071,399</strong></p>
+<hr>
+</section>
+<section id="final-answer-18071399" class="level2">
+<h2 class="anchored" data-anchor-id="final-answer-18071399">✅ <strong>Final Answer: 18,071,399</strong></h2>
+<p>If you want, I can also show a classical long-multiplication layout to verify it.</p>
+<hr>
+<p>In this response, I was surpised that the LLM took the step to first compute 1823 × 10,000 and then subtract the offset. Going back to the previous part about LLMs not really “knowing” math, I feel like this breaking down of the problem really exemplifies that – GPT-5.1 may not really “know” the computations, but it can identify and execute patterns (e.g.&nbsp;first computing 1823 × 10,000 and appending four zeros to perform this multiplication) that allow it to get to the right answer.</p>
+</section>
+<section id="gpt-4o" class="level2">
+<h2 class="anchored" data-anchor-id="gpt-4o">GPT-4o</h2>
+<p>On the other hand, GPT-4o got the answer wrong:</p>
+<p>Let’s multiply 1823 × 9913 manually using long multiplication.</p>
+<hr>
+<section id="step-1-break-9913-into-digits" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-break-9913-into-digits">Step 1: Break 9913 into digits</h3>
+<p>We’ll multiply 1823 by each digit of 9913, starting from the right:</p>
+<p>[ <span class="math display">\[\begin{align*}
+&amp;\phantom{+}1823 \times 3 = \quad ? \
+&amp;\phantom{+}1823 \times 10 = \quad 1823 \times 1 \text{ (shifted one place)} \
+&amp;\phantom{+}1823 \times 900 = \quad 1823 \times 9 \text{ (shifted two places)} \
+&amp;\phantom{+}1823 \times 9000 = \quad 1823 \times 9 \text{ (again, shifted three places)} \
+\end{align*}\]</span>&amp;1823 = <br>
+&amp;1823 = <br>
+&amp;1823 = <br>
+\end{align*}]</p>
+<hr>
+</section>
+<section id="step-2-multiply-each-digit" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-multiply-each-digit">Step 2: Multiply each digit</h3>
+<ol type="1">
+<li><p><strong>1823 × 3</strong> [ 1823 = 5469]</p></li>
+<li><p><strong>1823 × 1 (tens place)</strong> Shift left by 1 digit: [ 1823 = 1823 ]</p></li>
+<li><p><strong>1823 × 9 (hundreds place)</strong> [ 1823 = 16407 shift by two digits = 1640700]</p></li>
+<li><p><strong>1823 × 9 (thousands place)</strong> Same as above but shift three digits: [ 1823 × 9 = 16407 → shift = 16407000]</p></li>
+</ol>
+<hr>
+</section>
+<section id="step-3-add-them-together" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-add-them-together">Step 3: Add them together</h3>
+<p>[ <span class="math display">\[\begin{align*}
+&amp;\phantom{+} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5469 \
++&amp;\phantom{ \ \ \ \ \ \ \ \ \ }18230 \
++&amp;\phantom{ \ \ \ \ \ \ }1640700 \
++&amp;\phantom{ \ \ \ \ \ }16407000 \
+\hline
+=&amp;18072799
+\end{align*}\]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}1640700<br>
++&amp;16407000<br>
+=&amp;18072799 \end{align*}]</p>
+<hr>
+</section>
+<section id="final-answer" class="level3">
+<h3 class="anchored" data-anchor-id="final-answer">✅ Final Answer:</h3>
+<p>[ ]</p>
+<hr>
+<p>GPT-4o formatted its computation steps differently (making the Markdown a bit difficult to read), but its final answer was 18,072,799 – which is incorrect. Whereas GPT-5.1 first broke the problem down into a simpler problem (1823 × 10,000), GPT-4o dove straight into doing the multiplication and ended up getting the incorrect answer.</p>
+<p>I wondered if GPT-4o could still arrive at the correct answer if I gave it the broken-down problem that GPT-5.1 generated for itself. So, I prompted it: &gt; First, compute 1823 × 10,000. Then, compute 1823 × 87 by first computing 1823 × 100 and then subtracting 1823 × 13 from it. Finally, take the product of 1823 × 10,000 and subtract the product of 1823 × 87 from it.</p>
+<p>(This was the same line of reasoning that GPT-5.1 used)</p>
+<p>In response to this, it got the answer correct!</p>
+<p>Here was the full response:</p>
+<p>Let’s walk through this step by step.</p>
+<hr>
+</section>
+<section id="step-1-compute-1823-10000" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-compute-1823-10000"><strong>Step 1: Compute</strong> 1823 × 10,000</h3>
+<p>Multiplying by 10,000 is just appending four zeros:</p>
+<p>[ 1823 000 = 18{,}230{,}000]</p>
+<hr>
+</section>
+<section id="step-2-compute-1823-87" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-compute-1823-87"><strong>Step 2: Compute</strong> 1823 × 87</h3>
+<p>Break it down into:</p>
+<p>[ 1823 = 182{,}300] [ 1823 = <span class="math display">\[\begin{align*}
+1823 \times 10 &amp;= 18{,}230 \
+1823 \times 3  &amp;= 5{,}469 \
+\text{Sum} &amp;= 18{,}230 + 5{,}469 = 23{,}699
+\end{align*}\]</span>3 &amp;= 5{,}469<br>
+&amp;= 18{,}230 + 5{,}469 = 23{,}699 \end{align*}]</p>
+<p>Now subtract:</p>
+<p>[ 1823 = 1823 (100 - 13) = 182{,}300 - 23{,}699 = 158{,}601]</p>
+<hr>
+</section>
+<section id="step-3-subtract" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-subtract"><strong>Step 3: Subtract</strong></h3>
+<p>[ 1823 000 - 1823 = 18{,}230{,}000 - 158{,}601 = ]</p>
+<hr>
+</section>
+<section id="final-answer-18071399-1" class="level3">
+<h3 class="anchored" data-anchor-id="final-answer-18071399-1">✅ Final Answer: <strong>18,071,399</strong></h3>
+</section>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>Overall, I think that GPT-4o initially getting the answer wrong but then getting it correct after I prompted it to follow GPT-5.1’s line of reasoning really exemplifies how LLMs work under the hood. In this 4-digit multiplication example, the performance of the LLM wasn’t really about its ability to predict the next mathematical token the best – rather, it was about whether or not it could break the problem down into smaller, more manageable steps that it could perform well on. Once I prompted GPT-4o to first do these simple steps, it was able to predict next tokens just as well as GPT-5.1 was.</p>
+<p>This goes to show how important “thinking” is in LLMs. If you can force the LLM to break down the problem, it’s setting itself up for success.</p>
 
 
 </section>
