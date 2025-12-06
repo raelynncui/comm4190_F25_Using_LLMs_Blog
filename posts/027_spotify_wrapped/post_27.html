@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Can an LLM Predict my Spotify Wrapped? – Raelynn Cui</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-fa6ebe1abc24c69c1ddb9a141d0fa116.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Raelynn Cui</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/raelynncui"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/raelynncui"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Can an LLM Predict my Spotify Wrapped?</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div id="e5bd61c3-1b09-41f6-9584-954857947029" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"Can an LLM Predict my Spotify Wrapped?"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>description: <span class="st">"Seeing if LLMs can predict my top artists and songs"</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>author: <span class="st">"Raelynn Cui"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>date: <span class="st">"12/6/2025"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>categories:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> LLMs</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> ChatGPT</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Gemini</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Claude</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><img src="cover.png" width="100%"></p>
+<p>Recently, Spotify released Spotify Wrapped: an annual, personalized year-in-review feature where Spotify compiles and shares each user’s listening habits. Users can see their top artists, top songs, top genres, total time listened, and so on. In this year’s Wrapped, they even incorporated some new AI-powered insights – the end of my wrapped had a set of “reports” that said “powered by AI” at the bottom:</p>
+<p><img src="folder.png" width="20%"></p>
+<p>In this blog, I want to see if LLMs can predict my Spotify Wrapped (top 5songs, top 5 artists, total minutes listened, and top genre) just based on demographics/characteristics non-related to music. I will prompt three LLMs (GPT-5.1, Sonnet 4.5, and Gemini) with the following prompt:</p>
+<blockquote class="blockquote">
+<p>I am a Spotify listener. I want you to predict my top 5 artists, top 5 songs, total minutes listened, and top genre of 2025 just based on my demographics/things about me not related to music. Ask me as many questions as you need to make an accurate prediction. Once I answer your questions, generate your prediction.</p>
+</blockquote>
+<p>For context, this is my actual wrapped. Let’s see how well these LLMs do!</p>
+<p><img src="wrapped.jpg" width="20%"></p>
+<section id="gpt-5.1" class="level2">
+<h2 class="anchored" data-anchor-id="gpt-5.1">GPT-5.1</h2>
+<p>These were the questions ChatGPT asked me:</p>
+<hr>
+<section id="personal-daily-rhythm-work-style" class="level3">
+<h3 class="anchored" data-anchor-id="personal-daily-rhythm-work-style"><strong>1. Personal Daily Rhythm &amp; Work Style</strong></h3>
+<ul>
+<li>Are you more productive late at night or early in the morning?</li>
+<li>Do you prefer silence while studying/working, or background stimulation?</li>
+</ul>
+</section>
+<section id="aesthetics-identity" class="level3">
+<h3 class="anchored" data-anchor-id="aesthetics-identity"><strong>2. Aesthetics &amp; Identity</strong></h3>
+<ul>
+<li>How would you describe your fashion style (3–5 words)?</li>
+<li>What general vibe do you identify with most: <strong>Clean/minimalist</strong>, <strong>artsy/creative</strong>, <strong>chaotic/energetic</strong>, <strong>academic/introspective</strong>, <strong>sporty/outdoorsy</strong>, or something else?</li>
+</ul>
+</section>
+<section id="personality-social-life" class="level3">
+<h3 class="anchored" data-anchor-id="personality-social-life"><strong>3. Personality &amp; Social Life</strong></h3>
+<ul>
+<li>Do you get energized more by social settings or by time alone?</li>
+<li>How would your friends describe your energy level on a scale from <strong>1 (super calm)</strong> to <strong>10 (super energetic)</strong>?</li>
+</ul>
+</section>
+<section id="media-preferences-non-music" class="level3">
+<h3 class="anchored" data-anchor-id="media-preferences-non-music"><strong>4. Media Preferences (non-music)</strong></h3>
+<ul>
+<li>Favorite movie genres?</li>
+<li>Favorite TV show(s) or types of shows you gravitate toward?</li>
+<li>What type of characters do you like most: <strong>underdogs</strong>, <strong>antiheroes</strong>, <strong>wholesome protagonists</strong>, <strong>chaotic geniuses</strong>, or <strong>romantic leads</strong>?</li>
+</ul>
+</section>
+<section id="workload-lifestyle" class="level3">
+<h3 class="anchored" data-anchor-id="workload-lifestyle"><strong>5. Workload &amp; Lifestyle</strong></h3>
+<ul>
+<li>How stressful is your day-to-day life on average (1–10)?</li>
+<li>What’s your ideal way to decompress?</li>
+</ul>
+</section>
+<section id="ambition-motivation" class="level3">
+<h3 class="anchored" data-anchor-id="ambition-motivation"><strong>6. Ambition &amp; Motivation</strong></h3>
+<ul>
+<li>When you need motivation, what emotion works best? (Examples: intensity, nostalgia, empowerment, calm, hype, focus)</li>
+</ul>
+</section>
+<section id="physical-activity" class="level3">
+<h3 class="anchored" data-anchor-id="physical-activity"><strong>7. Physical Activity</strong></h3>
+<ul>
+<li>Do you work out regularly? If so, what type of exercise?</li>
+<li>What vibe do you prefer when moving: <strong>high intensity</strong>, <strong>steady rhythmic</strong>, <strong>calm</strong>, or <strong>playful</strong>?</li>
+</ul>
+</section>
+<section id="location-background" class="level3">
+<h3 class="anchored" data-anchor-id="location-background"><strong>8. Location &amp; Background</strong></h3>
+<ul>
+<li>Where do you spend most of your year geographically?</li>
+</ul>
+</section>
+<section id="tech-creative-preferences" class="level3">
+<h3 class="anchored" data-anchor-id="tech-creative-preferences"><strong>9. Tech &amp; Creative Preferences</strong></h3>
+<ul>
+<li>Do you like structured, efficient tools or whimsical creative ones?</li>
+<li>When building something (apps, slides, creative work), do you prefer: <strong>sleek/futuristic</strong>, <strong>soft/whimsical</strong>, <strong>bold/experimental</strong>, or <strong>simple/minimal</strong>?</li>
+</ul>
+</section>
+<section id="emotional-palette" class="level3">
+<h3 class="anchored" data-anchor-id="emotional-palette"><strong>10. Emotional Palette</strong></h3>
+<ul>
+<li>What emotion feels most like “home” to you? (e.g., curiosity, ambition, longing, joy, determination, melancholy, chaos)</li>
+</ul>
+<hr>
+<p>Overall, I was surprised that it didn’t ask me questions about some of the most basic demographics, such as my age or gender (I feel like if it new that I was a young adult female, Taylor Swift would be a likely and correct guess right off the bat). The closest it got was asking me “Where do you spend most of your year geographically?” but that was it. Instead, it seemed to focus much more on my overall aesthetic and emotions that I gravitate towards.</p>
+<p>Here were ChatGPT’s predictions:</p>
+<hr>
+</section>
+</section>
+<section id="your-2025-spotify-wrapped-predicted" class="level1">
+<h1>🎧 <strong>Your 2025 Spotify Wrapped (Predicted)</strong></h1>
+<section id="top-5-artists" class="level2">
+<h2 class="anchored" data-anchor-id="top-5-artists">⭐ <strong>Top 5 Artists</strong></h2>
+<ol type="1">
+<li><strong>Laufey</strong> — calm, soft romantic energy; perfect for morning productivity + romcom lover.</li>
+<li><strong>Gracie Abrams</strong> — introspective, melodic, emotionally gentle; fits your decompressing-in-bed vibe.</li>
+<li><strong>Daniel Caesar</strong> — warm, rhythmic, cozy R&amp;B that aligns with “calm hype.”</li>
+<li><strong>Renee Rapp</strong> — confident romantic pop, fits your desire for slightly more eclectic energy.</li>
+<li><strong>The 1975</strong> — clean, minimalist aesthetic but emotionally textured; great for café-study vibes.</li>
+</ol>
+</section>
+<section id="top-5-songs" class="level2">
+<h2 class="anchored" data-anchor-id="top-5-songs">🎵 <strong>Top 5 Songs</strong></h2>
+<ol type="1">
+<li><strong>“From the Start” – Laufey</strong></li>
+<li><strong>“I Love You, I’m Sorry” – Gracie Abrams</strong></li>
+<li><strong>“Always” – Daniel Caesar</strong></li>
+<li><strong>“Pretty Girls” – Reneé Rapp</strong></li>
+<li><strong>“About You” – The 1975</strong></li>
+</ol>
+</section>
+<section id="top-genre-soft-indie-pop-bedroom-pop-fusion" class="level2">
+<h2 class="anchored" data-anchor-id="top-genre-soft-indie-pop-bedroom-pop-fusion">🎼 <strong>Top Genre: “Soft Indie Pop / Bedroom Pop Fusion”</strong></h2>
+</section>
+</section>
+<section id="total-minutes-listened-predicted-18700-minutes" class="level1">
+<h1>⏱ <strong>Total Minutes Listened (Predicted): ~18,700 minutes</strong></h1>
+<hr>
+<p>It didn’t predict any of my top artists correctly, but these are all artists that I’ve listened to before. Additionally, none of the top 5 songs were correct. I’m not a fan of any of them except for About You by The 1975. It predicted my top genre (Indie Pop) correctly, though! Finally, the total minutes listened were significantly lower than reality.</p>
+<section id="sonnet-4.5" class="level2">
+<h2 class="anchored" data-anchor-id="sonnet-4.5">Sonnet 4.5</h2>
+<p>These were the questions Claude asked me:</p>
+<hr>
+<p><strong>Basic Demographics:</strong> 1. How old are you (or what age range)? 2. Where do you live (country/region)? 3. What’s your gender identity?</p>
+<p><strong>Lifestyle &amp; Activities:</strong> 4. What do you do for work or study? 5. What are your main hobbies or interests outside of music? 6. How do you typically spend your free time?</p>
+<p><strong>Personality &amp; Preferences:</strong> 7. Would you describe yourself as more introverted or extroverted? 8. Do you prefer energetic/upbeat vibes or more mellow/chill atmospheres? 9. Are you more nostalgic or do you prefer discovering new things?</p>
+<p><strong>Daily Routines:</strong> 10. Do you work out? If so, what type of exercise? 11. Do you have a long commute or spend a lot of time driving/traveling? 12. What time of day are you most active?</p>
+<p><strong>Social &amp; Cultural:</strong> 13. What movies, TV shows, or content creators do you enjoy? 14. Do you attend social events, concerts, or festivals? 15. What languages do you speak?</p>
+<hr>
+<p>Unlike ChatGPT, Claude asked me the basic demographic questions that I was expecting, such as age and gender. The questions were much less verbose than ChatGPT and I felt like they got to the point quicker.</p>
+<p>Here were its predictions:</p>
+<hr>
+</section>
+<section id="your-predicted-spotify-wrapped-2025" class="level2">
+<h2 class="anchored" data-anchor-id="your-predicted-spotify-wrapped-2025"><strong>Your Predicted Spotify Wrapped 2025</strong></h2>
+<section id="top-5-artists-1" class="level3">
+<h3 class="anchored" data-anchor-id="top-5-artists-1"><strong>Top 5 Artists:</strong></h3>
+<ol type="1">
+<li><strong>Gracie Abrams</strong> - Introspective, emotional indie pop perfect for studying and café work sessions</li>
+<li><strong>Taylor Swift</strong> - Nostalgic appeal + new releases, relatable storytelling for a 20-year-old</li>
+<li><strong>Phoebe Bridgers</strong> - Mellow, melancholic indie for introverted deep thinkers</li>
+<li><strong>Olivia Rodrigo</strong> - Gen Z anthem creator with both nostalgic 2000s influence and modern edge</li>
+<li><strong>Clairo</strong> - Chill bedroom pop ideal for morning walks to class and low-key vibes</li>
+</ol>
+</section>
+<section id="top-5-songs-1" class="level3">
+<h3 class="anchored" data-anchor-id="top-5-songs-1"><strong>Top 5 Songs:</strong></h3>
+<ol type="1">
+<li><strong>“I Love You, I’m Sorry” - Gracie Abrams</strong> - Peak study/café playlist energy</li>
+<li><strong>“Logical” - Olivia Rodrigo</strong> - Emotional processing between problem sets</li>
+<li><strong>“Bags” - Clairo</strong> - Your walking-to-class soundtrack</li>
+<li><strong>“Cruel Summer” - Taylor Swift</strong> - That one song you never skip</li>
+<li><strong>“Scott Street” - Phoebe Bridgers</strong> - Late-night philosophy paper writing companion</li>
+</ol>
+</section>
+<section id="total-minutes-listened" class="level3">
+<h3 class="anchored" data-anchor-id="total-minutes-listened"><strong>Total Minutes Listened:</strong></h3>
+<p><strong>~62,000 minutes</strong> (about 170 minutes/day)</p>
+</section>
+<section id="top-genre" class="level3">
+<h3 class="anchored" data-anchor-id="top-genre"><strong>Top Genre:</strong></h3>
+<p><strong>Indie Pop/Alternative</strong> - The perfect blend of mellow, introspective, and emotionally intelligent music for an introverted college student who values both comfort and depth</p>
+<hr>
+<p>Claude got Taylor Swift right, none of the top songs right, overestimated my total minutes listened, but got my top genre correct! Compared to ChatGPT, I think it did a slightly better job, but still failed to pick up on the more specific parts of my personality that would make artists like Fleetwood Mac and Lord Huron show up on my top artists. These top artists/top songs seem very representative of the “Indie Pop” genre, though, which matched my Spotify Wrapped.</p>
+</section>
+</section>
+<section id="gemini" class="level2">
+<h2 class="anchored" data-anchor-id="gemini">Gemini</h2>
+<p>These were the questions Gemini asked me:</p>
+<hr>
+<section id="personal-profile-lifestyle" class="level3">
+<h3 class="anchored" data-anchor-id="personal-profile-lifestyle">👤 Personal Profile &amp; Lifestyle</h3>
+<ol type="1">
+<li><strong>What is your age range?</strong> (e.g., 18-24, 25-34, 35-44, 45+)</li>
+<li><strong>Where do you live?</strong> (e.g., Major US city, Rural town in the UK, Suburban area in Canada)</li>
+<li><strong>What is your primary occupation/student status?</strong> (e.g., Full-time software engineer, College student, Stay-at-home parent, Retired)</li>
+<li><strong>What is your most common method of commuting/traveling?</strong> (e.g., Driving solo, Public transit, Walking, Working from home)</li>
+</ol>
+</section>
+<section id="media-entertainment-habits" class="level3">
+<h3 class="anchored" data-anchor-id="media-entertainment-habits">🖥️ Media &amp; Entertainment Habits</h3>
+<ol start="5" type="1">
+<li><strong>What is the last <em>non-music</em> TV show or movie you watched and enjoyed?</strong> (Please be specific: e.g., <em>Severance</em>, <em>Dune: Part Two</em>, <em>The Great British Bake Off</em>)</li>
+<li><strong>Do you listen to podcasts? If so, what is a topic or specific podcast you frequently listen to?</strong> (e.g., True Crime, Financial News, <em>The Daily</em>, Comedy)</li>
+<li><strong>Do you use social media heavily? Which platform do you spend the most time on?</strong> (e.g., Instagram, TikTok, Reddit, X)</li>
+</ol>
+<hr>
+<p>Similar to Claude, it was much less verbose that ChatGPT. However, as I’m answering these questions and seeing the output that these LLMs are producing, I’m beginning to wonder if ChatGPT was along the right tracks of trying to uncover my “vibes” and “aesthetics.” For example, knowing that I’m a 20-year-old female would probably land Taylor Swift among my top artists, but not artists like Lord Huron and Fleetwood Mac.</p>
+<p>Here were Gemini’s predictions:</p>
+<hr>
+</section>
+</section>
+<section id="your-predicted-2025-spotify-wrapped" class="level2">
+<h2 class="anchored" data-anchor-id="your-predicted-2025-spotify-wrapped">🔮 Your Predicted 2025 Spotify Wrapped</h2>
+<p>Your demographic profile strongly suggests you are plugged into current social media trends while maintaining a nostalgic appreciation for comfort media, leading to a mix of hyper-pop, trending sounds, and established artists who dominate streaming platforms.</p>
+<section id="top-5-artists-2" class="level3">
+<h3 class="anchored" data-anchor-id="top-5-artists-2">🎧 Top 5 Artists</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Rank</th>
+<th style="text-align: left;">Predicted Artist</th>
+<th style="text-align: left;">Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1</strong></td>
+<td style="text-align: left;"><strong>Sabrina Carpenter</strong></td>
+<td style="text-align: left;">Highly dominant on TikTok and Instagram in 2025, known for walking/commute-friendly pop anthems, and appeals perfectly to the 18-24 female college demographic.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong>Taylor Swift</strong></td>
+<td style="text-align: left;">The ultimate streaming powerhouse. Her consistent release of new/re-recorded music and massive presence ensures she remains a top-tier artist for virtually all college listeners.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3</strong></td>
+<td style="text-align: left;"><strong>SZA</strong></td>
+<td style="text-align: left;">Her blend of R&amp;B, pop, and soul is consistently viral on TikTok, appealing to a sophisticated listener who also consumes lifestyle and aesthetic content.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>4</strong></td>
+<td style="text-align: left;"><strong>Post Malone</strong></td>
+<td style="text-align: left;">His transition to more melodic, acoustic-leaning pop/rock while maintaining high production value keeps him highly relevant for studying, walking, and casual listening.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>5</strong></td>
+<td style="text-align: left;"><strong>Noah Kahan</strong></td>
+<td style="text-align: left;">Appeals to the “aesthetic” and acoustic trend often shared on lifestyle pages (Instagram/TikTok), providing the folk/singer-songwriter balance to your otherwise pop-heavy list.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="top-5-songs-2" class="level3">
+<h3 class="anchored" data-anchor-id="top-5-songs-2">🎶 Top 5 Songs</h3>
+<ol type="1">
+<li>A massive, upbeat <strong>Pop Anthem</strong> by a female artist that dominated the summer/fall 2025 charts (e.g., a huge new release from <strong>Sabrina Carpenter</strong> or a viral track from a new pop sensation).</li>
+<li>A <strong>R&amp;B/Hip-Hop track</strong> that uses a viral sound clip or trend on TikTok (often something catchy and short that’s perfect for background video sound).</li>
+<li>A <strong>Lyrical/Acoustic Ballad</strong> that is popular for “study vibes” playlists, likely from an artist like <strong>Noah Kahan</strong> or <strong>Hozier</strong>.</li>
+<li>A <strong>throwback song</strong> from the early 2010s or late 2000s that went viral on TikTok/Instagram Reels as a nostalgia sound (The <em>Office</em> podcast listener often has a soft spot for nostalgia).</li>
+<li>A <strong>current Hip-Hop/Pop crossover track</strong> perfect for walking or working out (high tempo, highly polished production).</li>
+</ol>
+</section>
+<section id="total-minutes-listened-1" class="level3">
+<h3 class="anchored" data-anchor-id="total-minutes-listened-1">📊 Total Minutes Listened</h3>
+<ul>
+<li><strong>Prediction:</strong> <strong>65,000 - 80,000 Minutes</strong></li>
+</ul>
+</section>
+<section id="top-genre-1" class="level3">
+<h3 class="anchored" data-anchor-id="top-genre-1">🏷️ Top Genre</h3>
+<ul>
+<li><strong>Prediction:</strong> <strong>Pop</strong></li>
+</ul>
+<hr>
+<p>It only got Taylor Swift right for the top artists, but I felt like the inclusion of Noah Kahan was a step closer to the artists I listen to. Additionally, I found it interesting that it didn’t name any songs explicitly – just describing the songs like “a massive upbeat pop anthem” or “a throwback song.” Similar to both ChatGPT and Claude, it got my top genre correct as well.</p>
+<p>I wanted to get explicit names for its predicted top 5 songs, so I prompted it again. It responded with:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Rank</th>
+<th style="text-align: left;">Predicted Song Title &amp; Artist</th>
+<th style="text-align: left;">Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1</strong></td>
+<td style="text-align: left;"><strong>“Manchild” - Sabrina Carpenter</strong></td>
+<td style="text-align: left;">This track was a global phenomenon and one of Spotify’s predicted “Songs of Summer 2025.” Given my prediction of Sabrina Carpenter as your top artist and your love of viral, walking-friendly pop, this is your #1 stream.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong>“Die With A Smile” - Lady Gaga &amp; Bruno Mars</strong></td>
+<td style="text-align: left;">This was the most-streamed song <em>globally</em> in 2025. As a college student whose listening habits are aligned with major U.S. and global trends, it’s an undeniable, high-rotation track perfect for walking, studying, and background listening.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3</strong></td>
+<td style="text-align: left;"><strong>“back to friends” - sombr</strong></td>
+<td style="text-align: left;">This song was identified as having high viral appeal in the U.S. and a major “Songs of Summer 2025” pick. Its chill, lyric-driven, and slightly introspective vibe perfectly suits the “lifestyle” and “aesthetic” content you enjoy on social media.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>4</strong></td>
+<td style="text-align: left;"><strong>“Kill Bill” - SZA</strong></td>
+<td style="text-align: left;">A continued streaming juggernaut, SZA’s music maintains incredible relevance, especially for those listening to R&amp;B/soul that is often soundtracking TikTok/Instagram Reels. Its smooth, study-friendly R&amp;B sound made it a staple for college students.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>5</strong></td>
+<td style="text-align: left;"><strong>“End of Beginning” - Djo</strong></td>
+<td style="text-align: left;">This track is a masterclass in modern nostalgia (similar to your <em>The Office</em> interest), with a vintage, indie-pop sound that found massive popularity on social media and on “Best in Class” college playlists. It’s the perfect “walking in New Jersey” mood setter.</td>
+</tr>
+</tbody>
+</table>
+<p>None of these were correct and felt somewhat off. These tracks just seem like the most popular pop songs of 2025, not tailored to my specific demographics. That being said, the main information it had about me were my demographics/some basic listening habits – not much.</p>
+</section>
+</section>
+</section>
+<section id="reflection" class="level1">
+<h1>Reflection</h1>
+<p>While I was initially critical of how verbose and excessive ChatGPT seemed to be with its questions, after seeing the predictions of the more concise and direct models (Claude and Gemini), I think some of these questions actually could’ve been extremely valuable. Because Claude’s and Gemini’s predictions seemed to hinge around the stereotypical “20-year-old female,” they failed to pick up on more nuanced aspects of my listening behavior. On the other hand, GPT-5.1 seemed to inquire more about my aesthetics and vibes – if I had answered in more detail or answered in a different way, I’m wondering if it could’ve generated better predictions.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/raelynncui\.github\.io\/comm4190_F25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
